@@ -22,33 +22,6 @@ A full-stack **Django** web application for exploring, searching, and analyzing 
 
 ---
 
-## 🖼️ Screenshots
-
-> Place the images from the `screenshots/` folder (included with this README) into your repository, then these will render automatically on GitHub.
-
-### Login
-![Login Page](screenshots/login.png)
-
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-### Search & Filters
-![Search Page](screenshots/search.png)
-
-### Analytics
-![Analytics Page](screenshots/analytics.png)
-
-### Compare Bikes
-![Compare Page](screenshots/compare.png)
-
-### Admin Records Panel
-![Admin Records](screenshots/admin_records.png)
-
-### Sign Up
-![Sign Up Page](screenshots/signup.png)
-
----
-
 ## 🧰 Tech Stack
 
 | Layer          | Technology                                   |
