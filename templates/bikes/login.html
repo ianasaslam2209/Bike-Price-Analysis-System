@@ -1,0 +1,34 @@
+{% extends 'bikes/base.html' %}
+{% block title %}Login — BikeAnalysis{% endblock %}
+{% block content %}
+<div class="auth-card">
+  <div style="text-align:center;margin-bottom:1.8rem">
+    <div style="font-size:2.5rem">🏍️</div>
+    <h2 style="margin:.5rem 0 .3rem">Welcome Back</h2>
+    <p style="color:var(--text-muted);font-size:.9rem">Sign in to access BikeAnalysis</p>
+  </div>
+
+  <form method="post" id="loginForm">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Enter your username" required autofocus>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit" class="btn-primary">🔑 Login</button>
+  </form>
+
+  <div class="auth-link" style="margin-top:1.2rem">
+    Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>
+  </div>
+
+  {% if next %}
+  <div style="margin-top:1rem;padding:.8rem;background:#dbeafe;border-radius:8px;font-size:.82rem;color:#1e40af">
+    🔒 You need to log in to access that page.
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

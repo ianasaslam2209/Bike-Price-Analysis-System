@@ -1,0 +1,357 @@
+{% extends 'bikes/base.html' %}
+{% load static %}
+{% block title %}Analytics — Bike Price Analysis{% endblock %}
+
+{% block content %}
+<div class="page-hd">
+  <div class="wrap">
+    <h2>📊 Analytical Insights</h2>
+    <p>Price driver analysis, fuel distribution, brand aggregations — from {{ total }} real-world records</p>
+  </div>
+</div>
+
+<div class="wrap section">
+
+  <!-- SUMMARY -->
+  <div class="stats-grid">
+    <div class="stat-card navy">
+      <div class="stat-icon">🏍️</div>
+      <div><div class="stat-val">{{ total }}</div><div class="stat-lbl">Total Records</div></div>
+    </div>
+    <div class="stat-card red">
+      <div class="stat-icon">💰</div>
+      <div><div class="stat-val">${{ avg_price }}</div><div class="stat-lbl">Mean Price</div></div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-icon">📊</div>
+      <div><div class="stat-val">${{ median_price }}</div><div class="stat-lbl">Median Price</div></div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-icon">⛽</div>
+      <div><div class="stat-val">{{ petrol_n }}</div><div class="stat-lbl">Petrol Bikes</div></div>
+    </div>
+    <div class="stat-card electric">
+      <div class="stat-icon">⚡</div>
+      <div><div class="stat-val">{{ electric_n }}</div><div class="stat-lbl">Electric Bikes</div></div>
+    </div>
+  </div>
+
+  <div class="analytics-grid">
+
+    <!-- PIE CHART -->
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">⛽ Fuel Type Distribution</div>
+        <div class="pie-row">
+          <svg id="pie" width="170" height="170" viewBox="0 0 170 170"></svg>
+          <div class="pie-legend">
+            <div class="legend-row">
+              <div class="legend-dot" style="background:var(--petrol)"></div>
+              <span style="color:var(--muted)">Petrol</span>
+              <strong>{{ petrol_n }} ({{ petrol_pct }}%)</strong>
+            </div>
+            <div class="legend-row">
+              <div class="legend-dot" style="background:var(--electric)"></div>
+              <span style="color:var(--muted)">Electric</span>
+              <strong>{{ electric_n }} ({{ electric_pct }}%)</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICE HISTOGRAM -->
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">💵 Price Distribution (Histogram)</div>
+        <div class="hist-wrap" id="histogram"></div>
+      </div>
+    </div>
+
+    <!-- YEAR TREND -->
+    <div class="card col-full">
+      <div class="card-body">
+        <div class="card-title">📅 Average Price by Year (Trend)</div>
+        <div class="scatter-wrap">
+          <svg id="trend" width="100%" height="220" style="min-width:500px;"></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CC vs PRICE SCATTER -->
+    <div class="card col-full">
+      <div class="card-body">
+        <div class="card-title">🔧 Engine CC vs Price — Price Driver Analysis (Petrol Bikes)</div>
+        <div class="scatter-wrap">
+          <svg id="scatter" width="100%" height="280" style="min-width:500px;"></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRAND AGGREGATION -->
+    <div class="card col-full">
+      <div class="card-body">
+        <div class="card-title">🏷️ Brand Aggregation — Average Prices</div>
+        <table class="b-table">
+          <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Avg Price</th>
+              <th>Min</th>
+              <th>Max</th>
+              <th>Count</th>
+              <th style="width:200px">Visual</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for b in brand_stats %}
+            <tr>
+              <td><strong>{{ b.brand }}</strong></td>
+              <td style="color:var(--red);font-weight:700;">${{ b.avg_price|floatformat:0 }}</td>
+              <td style="color:var(--muted)">${{ b.min_price|floatformat:0 }}</td>
+              <td style="color:var(--muted)">${{ b.max_price|floatformat:0 }}</td>
+              <td>{{ b.cnt }}</td>
+              <td>
+                <div class="b-bar-wrap">
+                  <div class="b-bar" style="width:{{ b.avg_price|floatformat:0 }}px;max-width:180px;"></div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TOP 10 -->
+    <div class="card col-full">
+      <div class="card-body">
+        <div class="card-title">🏆 Top 10 Most Expensive Bikes</div>
+        <div class="top10-list">
+          {% for b in top10 %}
+          <div class="top10-item">
+            <div class="top10-rank {% if forloop.counter == 1 %}gold{% elif forloop.counter == 2 %}silver{% elif forloop.counter == 3 %}bronze{% endif %}">
+              {% if forloop.counter <= 3 %}
+                {% if forloop.counter == 1 %}🥇{% elif forloop.counter == 2 %}🥈{% else %}🥉{% endif %}
+              {% else %}#{{ forloop.counter }}{% endif %}
+            </div>
+            <span>{% if b.fuel_type == 'Electric' %}⚡{% else %}🏍️{% endif %}</span>
+            <div class="top10-info">
+              <div class="top10-name"><a href="{% url 'bike_detail' b.pk %}" style="color:var(--navy)">{{ b.bike_name }}</a></div>
+              <div class="top10-brand">{{ b.brand }} &bull; {{ b.year }} &bull; <span class="tag tag-{% if b.fuel_type == 'Electric' %}electric{% else %}petrol{% endif %}">{{ b.fuel_type }}</span></div>
+            </div>
+            <div class="top10-price">${{ b.price_usd }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const histLabels  = {{ hist_labels|safe }};
+const histCounts  = {{ hist_counts|safe }};
+const yearTrend   = {{ year_trend|safe }};
+const scatterData = {{ scatter_data|safe }};
+const petrolPct   = {{ petrol_pct }};
+const electricPct = {{ electric_pct }};
+const totalBikes  = {{ total }};
+
+// ── PIE ──────────────────────────────────────────────────────────────────────
+(function(){
+  const svg = document.getElementById('pie');
+  const cx=85, cy=85, r=78;
+  const slices = [
+    { pct: petrolPct/100,   color: '#e63946' },
+    { pct: electricPct/100, color: '#4cc9f0' },
+  ];
+  let angle = -Math.PI/2;
+  const ns = 'http://www.w3.org/2000/svg';
+  slices.forEach(s => {
+    if(!s.pct) return;
+    const end = angle + s.pct*2*Math.PI;
+    const x1=cx+r*Math.cos(angle), y1=cy+r*Math.sin(angle);
+    const x2=cx+r*Math.cos(end),   y2=cy+r*Math.sin(end);
+    const la = s.pct > .5 ? 1 : 0;
+    const p = document.createElementNS(ns,'path');
+    p.setAttribute('d',`M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${la},1 ${x2},${y2} Z`);
+    p.setAttribute('fill', s.color);
+    p.setAttribute('stroke','#fff'); p.setAttribute('stroke-width','3');
+    svg.appendChild(p);
+    angle = end;
+  });
+  const hole = document.createElementNS(ns,'circle');
+  hole.setAttribute('cx',cx); hole.setAttribute('cy',cy); hole.setAttribute('r',36);
+  hole.setAttribute('fill','#fff');
+  svg.appendChild(hole);
+  const t = document.createElementNS(ns,'text');
+  t.setAttribute('x',cx); t.setAttribute('y',cy+5);
+  t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','13');
+  t.setAttribute('font-weight','800'); t.setAttribute('fill','#1d3557');
+  t.textContent = totalBikes;
+  svg.appendChild(t);
+  const t2 = document.createElementNS(ns,'text');
+  t2.setAttribute('x',cx); t2.setAttribute('y',cy+18);
+  t2.setAttribute('text-anchor','middle'); t2.setAttribute('font-size','9');
+  t2.setAttribute('fill','#64748b'); t2.textContent = 'total';
+  svg.appendChild(t2);
+})();
+
+// ── HISTOGRAM ────────────────────────────────────────────────────────────────
+(function(){
+  const wrap = document.getElementById('histogram');
+  const maxC = Math.max(...histCounts, 1);
+  histLabels.forEach((lbl, i) => {
+    const col = document.createElement('div');
+    col.className = 'hist-col';
+    const pct = histCounts[i] / maxC;
+    col.innerHTML = `
+      <div class="hist-cnt">${histCounts[i]}</div>
+      <div class="hist-bar" style="height:${Math.max(pct*140,3)}px" title="${lbl}: ${histCounts[i]} bikes"></div>
+      <div class="hist-lbl">${lbl}</div>`;
+    wrap.appendChild(col);
+  });
+})();
+
+// ── YEAR TREND LINE ───────────────────────────────────────────────────────────
+(function(){
+  const svg  = document.getElementById('trend');
+  const W    = svg.parentElement.clientWidth || 700;
+  const H    = 220;
+  const pad  = {top:20, right:30, bottom:40, left:65};
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const ns   = 'http://www.w3.org/2000/svg';
+
+  const years  = yearTrend.map(d=>d.year);
+  const prices = yearTrend.map(d=>d.avg);
+  const xMin = Math.min(...years), xMax = Math.max(...years);
+  const yMin = Math.min(...prices)*0.9, yMax = Math.max(...prices)*1.05;
+
+  const xS = y => pad.left + (y-xMin)/(xMax-xMin||1) * (W-pad.left-pad.right);
+  const yS = p => H-pad.bottom - (p-yMin)/(yMax-yMin||1) * (H-pad.top-pad.bottom);
+
+  // grid lines
+  [0,.25,.5,.75,1].forEach(t => {
+    const y = yS(yMin + t*(yMax-yMin));
+    const line = document.createElementNS(ns,'line');
+    line.setAttribute('x1',pad.left); line.setAttribute('x2',W-pad.right);
+    line.setAttribute('y1',y); line.setAttribute('y2',y);
+    line.setAttribute('stroke','#e0e4ea'); line.setAttribute('stroke-width','1');
+    svg.appendChild(line);
+    const txt = document.createElementNS(ns,'text');
+    txt.setAttribute('x',pad.left-6); txt.setAttribute('y',y+4);
+    txt.setAttribute('text-anchor','end'); txt.setAttribute('font-size','10');
+    txt.setAttribute('fill','#64748b');
+    txt.textContent = '$'+(yMin+t*(yMax-yMin)).toFixed(0);
+    svg.appendChild(txt);
+  });
+
+  // area
+  const areaPoints = [`${xS(years[0])},${H-pad.bottom}`];
+  yearTrend.forEach(d => areaPoints.push(`${xS(d.year)},${yS(d.avg)}`));
+  areaPoints.push(`${xS(years[years.length-1])},${H-pad.bottom}`);
+  const area = document.createElementNS(ns,'polygon');
+  area.setAttribute('points', areaPoints.join(' '));
+  area.setAttribute('fill','rgba(69,123,157,.12)');
+  svg.appendChild(area);
+
+  // line
+  const pts = yearTrend.map(d=>`${xS(d.year)},${yS(d.avg)}`).join(' ');
+  const poly = document.createElementNS(ns,'polyline');
+  poly.setAttribute('points', pts);
+  poly.setAttribute('fill','none'); poly.setAttribute('stroke','#457b9d');
+  poly.setAttribute('stroke-width','2.5'); poly.setAttribute('stroke-linejoin','round');
+  svg.appendChild(poly);
+
+  // dots + labels
+  yearTrend.forEach(d => {
+    const c = document.createElementNS(ns,'circle');
+    c.setAttribute('cx',xS(d.year)); c.setAttribute('cy',yS(d.avg)); c.setAttribute('r','5');
+    c.setAttribute('fill','#e63946'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','2');
+    const title = document.createElementNS(ns,'title');
+    title.textContent = `${d.year}: $${d.avg}`;
+    c.appendChild(title); svg.appendChild(c);
+
+    const xt = document.createElementNS(ns,'text');
+    xt.setAttribute('x',xS(d.year)); xt.setAttribute('y',H-pad.bottom+15);
+    xt.setAttribute('text-anchor','middle'); xt.setAttribute('font-size','10');
+    xt.setAttribute('fill','#64748b'); xt.textContent = d.year;
+    svg.appendChild(xt);
+  });
+})();
+
+// ── SCATTER ───────────────────────────────────────────────────────────────────
+(function(){
+  const svg = document.getElementById('scatter');
+  const W   = svg.parentElement.clientWidth || 700;
+  const H   = 280;
+  const pad = {top:20, right:40, bottom:45, left:65};
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const ns  = 'http://www.w3.org/2000/svg';
+
+  const xs = scatterData.map(d=>d.cc), ys = scatterData.map(d=>d.price);
+  const xMin=Math.min(...xs), xMax=Math.max(...xs);
+  const yMin=Math.min(...ys)*0.92, yMax=Math.max(...ys)*1.05;
+  const xS = v => pad.left + (v-xMin)/(xMax-xMin||1)*(W-pad.left-pad.right);
+  const yS = v => H-pad.bottom - (v-yMin)/(yMax-yMin||1)*(H-pad.top-pad.bottom);
+
+  // grid
+  [0,.25,.5,.75,1].forEach(t => {
+    const y = yS(yMin+t*(yMax-yMin));
+    const l = document.createElementNS(ns,'line');
+    l.setAttribute('x1',pad.left); l.setAttribute('x2',W-pad.right);
+    l.setAttribute('y1',y); l.setAttribute('y2',y);
+    l.setAttribute('stroke','#e0e4ea'); l.setAttribute('stroke-width','1');
+    svg.appendChild(l);
+    const tx = document.createElementNS(ns,'text');
+    tx.setAttribute('x',pad.left-6); tx.setAttribute('y',y+4);
+    tx.setAttribute('text-anchor','end'); tx.setAttribute('font-size','10');
+    tx.setAttribute('fill','#64748b');
+    tx.textContent='$'+(yMin+t*(yMax-yMin)).toFixed(0);
+    svg.appendChild(tx);
+  });
+
+  // axis labels
+  const xl = document.createElementNS(ns,'text');
+  xl.setAttribute('x',W/2); xl.setAttribute('y',H-6);
+  xl.setAttribute('text-anchor','middle'); xl.setAttribute('font-size','11');
+  xl.setAttribute('fill','#64748b'); xl.textContent='Engine Capacity (CC)';
+  svg.appendChild(xl);
+
+  const yl = document.createElementNS(ns,'text');
+  yl.setAttribute('transform',`rotate(-90)`);
+  yl.setAttribute('x',-(H/2)); yl.setAttribute('y',17);
+  yl.setAttribute('text-anchor','middle'); yl.setAttribute('font-size','11');
+  yl.setAttribute('fill','#64748b'); yl.textContent='Price (USD)';
+  svg.appendChild(yl);
+
+  // dots
+  const brandColors = {
+    'Honda':'#e63946','Yamaha':'#457b9d','Kawasaki':'#2dc653',
+    'Suzuki':'#f4a261','KTM':'#f59e0b','Royal Enfield':'#8b5cf6',
+    'Bajaj':'#06b6d4','Hero':'#ec4899','Harley-Davidson':'#6366f1',
+    'TVS':'#14b8a6',
+  };
+  scatterData.forEach(d => {
+    const c = document.createElementNS(ns,'circle');
+    c.setAttribute('cx',xS(d.cc)); c.setAttribute('cy',yS(d.price)); c.setAttribute('r','5');
+    c.setAttribute('fill', brandColors[d.brand]||'#64748b');
+    c.setAttribute('fill-opacity','.7'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','1');
+    const title = document.createElementNS(ns,'title');
+    title.textContent=`${d.name}\nBrand: ${d.brand}\nCC: ${d.cc} | Price: $${d.price} | KMs: ${d.kms}`;
+    c.appendChild(title); svg.appendChild(c);
+  });
+
+  // x-axis ticks
+  [xMin, (xMin+xMax)/2, xMax].forEach(v => {
+    const tx = document.createElementNS(ns,'text');
+    tx.setAttribute('x',xS(v)); tx.setAttribute('y',H-pad.bottom+15);
+    tx.setAttribute('text-anchor','middle'); tx.setAttribute('font-size','10');
+    tx.setAttribute('fill','#64748b'); tx.textContent=Math.round(v)+'cc';
+    svg.appendChild(tx);
+  });
+})();
+</script>
+{% endblock %}

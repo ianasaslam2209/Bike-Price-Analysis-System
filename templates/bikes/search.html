@@ -1,0 +1,138 @@
+{% extends 'bikes/base.html' %}
+{% load static %}
+{% block title %}Search Bikes — Bike Price Analysis{% endblock %}
+
+{% block content %}
+
+<div class="wrap section" style="padding-top:2rem;">
+
+  <h1 style="font-size:1.8rem;margin-bottom:1.5rem;">🔍 Search Bikes</h1>
+
+  <!-- SUMMARY STATS -->
+  <div class="stats-grid">
+    <div class="stat-card red">
+      <div class="stat-icon">🏍️</div>
+      <div><div class="stat-val">{{ total }}</div><div class="stat-lbl">Results Found</div></div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-icon">💰</div>
+      <div><div class="stat-val">${{ stats.avg_price|floatformat:0 }}</div><div class="stat-lbl">Avg Price</div></div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-icon">⬇️</div>
+      <div><div class="stat-val">${{ stats.min_price|floatformat:0 }}</div><div class="stat-lbl">Min Price</div></div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-icon">⬆️</div>
+      <div><div class="stat-val">${{ stats.max_price|floatformat:0 }}</div><div class="stat-lbl">Max Price</div></div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <form method="GET">
+    <div class="filter-bar">
+      <div class="f-group wide">
+        <label class="f-label">🔍 Search</label>
+        <input type="text" name="q" placeholder="Bike name or brand…" value="{{ q }}">
+      </div>
+      <div class="f-group">
+        <label class="f-label">🏷️ Brand</label>
+        <select name="brand">
+          <option value="">All Brands</option>
+          {% for b in brands %}
+          <option value="{{ b }}" {% if sel_brand == b %}selected{% endif %}>{{ b }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="f-group">
+        <label class="f-label">📅 Year</label>
+        <select name="year">
+          <option value="">All Years</option>
+          {% for y in years %}
+          <option value="{{ y }}" {% if sel_year == y|stringformat:"s" %}selected{% endif %}>{{ y }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="f-group">
+        <label class="f-label">⛽ Fuel</label>
+        <select name="fuel">
+          <option value="">All Fuels</option>
+          <option value="Petrol"   {% if sel_fuel == 'Petrol'   %}selected{% endif %}>⛽ Petrol</option>
+          <option value="Electric" {% if sel_fuel == 'Electric' %}selected{% endif %}>⚡ Electric</option>
+        </select>
+      </div>
+      <div class="f-group">
+        <label class="f-label">💵 Price Range (USD)</label>
+        <div class="f-price-range">
+          <input type="number" name="price_min" placeholder="Min" value="{{ sel_price_min }}" style="min-width:80px;">
+          <span>–</span>
+          <input type="number" name="price_max" placeholder="Max" value="{{ sel_price_max }}" style="min-width:80px;">
+        </div>
+      </div>
+      <div style="display:flex;gap:.5rem;align-self:flex-end;">
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="{% url 'search' %}" class="btn btn-ghost">Clear</a>
+      </div>
+    </div>
+  </form>
+
+  <!-- RESULTS BAR -->
+  <div class="results-bar">
+    <span class="count">Showing <strong>{{ total }}</strong> bike{{ total|pluralize }} of {{ db_total }} total</span>
+    {% if q or sel_brand or sel_year or sel_fuel or sel_price_min or sel_price_max %}
+    <span style="font-size:.82rem;color:var(--blue);">✓ Filters active —
+      <a href="{% url 'search' %}" style="color:var(--red);">clear all</a>
+    </span>
+    {% endif %}
+  </div>
+
+  <!-- BIKE GRID -->
+  {% if bikes %}
+  <div class="bike-grid">
+    {% for bike in bikes %}
+    <div class="bike-card">
+      <div class="bc-head">
+        <span class="bc-fuel fuel-{% if bike.fuel_type == 'Electric' %}electric{% else %}petrol{% endif %}">{{ bike.fuel_type }}</span>
+        <span class="bc-icon">{% if bike.fuel_type == 'Electric' %}⚡{% else %}🏍️{% endif %}</span>
+        <div class="bc-name">{{ bike.bike_name }}</div>
+        <div class="bc-brand">{{ bike.brand }} &bull; {{ bike.year }}</div>
+      </div>
+      <div class="bc-body">
+        <div class="bc-specs">
+          <div>
+            <div class="spec-lbl">Engine</div>
+            <div class="spec-val">{% if bike.engine_capacity_cc > 0 %}{{ bike.engine_capacity_cc }} cc{% else %}Electric{% endif %}</div>
+          </div>
+          <div>
+            <div class="spec-lbl">KMs Driven</div>
+            <div class="spec-val">{{ bike.kms_driven|floatformat:0 }}</div>
+          </div>
+          <div>
+            <div class="spec-lbl">Year</div>
+            <div class="spec-val">{{ bike.year }}</div>
+          </div>
+          <div>
+            <div class="spec-lbl">Fuel</div>
+            <div class="spec-val">{{ bike.fuel_type }}</div>
+          </div>
+        </div>
+        <div class="bc-price">${{ bike.price_usd }}</div>
+      </div>
+      <div class="bc-foot">
+        <a href="{% url 'bike_detail' bike.pk %}" class="btn btn-navy btn-sm">View Details</a>
+        <a href="{% url 'compare' %}?ids={{ bike.pk }}" class="btn btn-outline btn-sm">Compare</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div class="empty">
+    <div class="e-icon">🔍</div>
+    <h3>No bikes found</h3>
+    <p>Try adjusting your filters or <a href="{% url 'search' %}" style="color:var(--blue);">clear all</a>.</p>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}

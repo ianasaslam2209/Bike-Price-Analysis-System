@@ -1,0 +1,86 @@
+{% extends 'bikes/base.html' %}
+{% block title %}Admin Records — BikeAnalysis{% endblock %}
+{% block content %}
+<div style="max-width:1400px;margin:2rem auto;padding:0 1rem">
+
+  <div class="page-header">
+    <div>
+      <h1 style="font-size:1.8rem">🗂️ Admin Records</h1>
+      <p style="color:var(--text-muted)">{{ total }} bikes shown &nbsp;|&nbsp; {{ db_total }} total in DB</p>
+    </div>
+    <a href="{% url 'bike_add' %}" style="padding:.65rem 1.4rem;background:#10b981;color:#fff;border-radius:8px;text-decoration:none;font-weight:600">
+      + Add Bike
+    </a>
+  </div>
+
+  {# Filters #}
+  <form method="get" style="background:var(--card);padding:1.2rem;border-radius:12px;display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.5rem;align-items:flex-end">
+    <div style="flex:1;min-width:160px">
+      <label style="font-size:.8rem;color:var(--text-muted);display:block;margin-bottom:.3rem">Search</label>
+      <input type="text" name="q" value="{{ q }}" placeholder="Name or brand…" style="width:100%;padding:.55rem .9rem;border-radius:7px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);box-sizing:border-box">
+    </div>
+    <div>
+      <label style="font-size:.8rem;color:var(--text-muted);display:block;margin-bottom:.3rem">Brand</label>
+      <select name="brand" style="padding:.55rem .9rem;border-radius:7px;border:1.5px solid var(--border);background:var(--bg);color:var(--text)">
+        <option value="">All</option>
+        {% for b in brands %}<option value="{{ b }}" {% if b == sel_brand %}selected{% endif %}>{{ b }}</option>{% endfor %}
+      </select>
+    </div>
+    <div>
+      <label style="font-size:.8rem;color:var(--text-muted);display:block;margin-bottom:.3rem">Year</label>
+      <select name="year" style="padding:.55rem .9rem;border-radius:7px;border:1.5px solid var(--border);background:var(--bg);color:var(--text)">
+        <option value="">All</option>
+        {% for y in years %}<option value="{{ y }}" {% if y|stringformat:"s" == sel_year %}selected{% endif %}>{{ y }}</option>{% endfor %}
+      </select>
+    </div>
+    <div>
+      <label style="font-size:.8rem;color:var(--text-muted);display:block;margin-bottom:.3rem">Fuel</label>
+      <select name="fuel" style="padding:.55rem .9rem;border-radius:7px;border:1.5px solid var(--border);background:var(--bg);color:var(--text)">
+        <option value="">All</option>
+        <option value="Petrol"   {% if sel_fuel == 'Petrol'   %}selected{% endif %}>Petrol</option>
+        <option value="Electric" {% if sel_fuel == 'Electric' %}selected{% endif %}>Electric</option>
+      </select>
+    </div>
+    <button type="submit" style="padding:.6rem 1.2rem;background:#6366f1;color:#fff;border:none;border-radius:7px;font-weight:600;cursor:pointer">🔍 Filter</button>
+    <a href="{% url 'admin_records' %}" style="padding:.6rem 1rem;color:var(--text-muted);text-decoration:none;font-size:.9rem">✕ Clear</a>
+  </form>
+
+  <div style="overflow-x:auto;background:var(--card);border-radius:12px;padding:0">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Bike Name</th><th>Brand</th><th>Year</th>
+          <th>Fuel</th><th>KMs</th><th>CC</th><th>Price (USD)</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bike in bikes %}
+        <tr>
+          <td style="color:var(--text-muted);font-size:.8rem">{{ bike.pk }}</td>
+          <td><strong>{{ bike.bike_name }}</strong></td>
+          <td>{{ bike.brand }}</td>
+          <td>{{ bike.year }}</td>
+          <td>
+            {% if bike.fuel_type == 'Electric' %}
+              <span style="background:#d1fae5;color:#065f46;padding:.2rem .5rem;border-radius:4px;font-size:.78rem;font-weight:600">⚡ Electric</span>
+            {% else %}
+              <span style="background:#fef3c7;color:#92400e;padding:.2rem .5rem;border-radius:4px;font-size:.78rem;font-weight:600">⛽ Petrol</span>
+            {% endif %}
+          </td>
+          <td>{{ bike.kms_driven|floatformat:0 }}</td>
+          <td>{{ bike.engine_capacity_cc }}</td>
+          <td><strong>${{ bike.price_usd }}</strong></td>
+          <td style="white-space:nowrap">
+            <a href="{% url 'bike_edit' bike.pk %}" class="btn-sm btn-edit">✏️ Edit</a>
+            &nbsp;
+            <a href="{% url 'bike_delete' bike.pk %}" class="btn-sm btn-del">🗑️ Delete</a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="9" style="text-align:center;padding:2rem;color:var(--text-muted)">No records found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

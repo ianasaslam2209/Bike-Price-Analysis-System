@@ -1,0 +1,95 @@
+{% extends 'bikes/base.html' %}
+{% block title %}Import CSV — Bike Price Analysis{% endblock %}
+
+{% block content %}
+<div class="page-hd">
+  <div class="wrap">
+    <h2>📂 Import CSV Data</h2>
+    <p>Upload a CSV file with columns: bike_name, brand, year, fuel_type, kms_driven, engine_capacity_cc, price_usd</p>
+  </div>
+</div>
+
+<div class="wrap section">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;">
+
+    <!-- UPLOAD FORM -->
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">📤 Upload CSV File</div>
+
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <label class="upload-zone" for="csv_file">
+            <div class="uz-icon">📁</div>
+            <p><strong>Click to choose a CSV file</strong></p>
+            <p style="margin-top:.4rem;font-size:.8rem;">Columns required: bike_name, brand, year, fuel_type, kms_driven, engine_capacity_cc, price_usd</p>
+          </label>
+          <input type="file" name="csv_file" id="csv_file" accept=".csv" style="display:none;" onchange="showName(this)">
+          <p id="fname" style="margin-top:.6rem;font-size:.85rem;color:var(--blue);"></p>
+          <button type="submit" class="btn btn-primary btn-lg" style="margin-top:1rem;width:100%;">📤 Import Now</button>
+        </form>
+
+        {% if result %}
+        <div class="result-success" style="margin-top:1rem;">
+          ✅ <strong>{{ result.created }}</strong> bikes imported successfully!
+        </div>
+        {% if result.errors %}
+        <div class="result-errors">
+          ⚠️ {{ result.errors|length }} row error(s):
+          <ul>{% for e in result.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- INFO PANEL -->
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">📊 Current Database</div>
+          <div class="stat-card navy" style="border-left:none;">
+            <div class="stat-icon">🏍️</div>
+            <div><div class="stat-val">{{ db_total }}</div><div class="stat-lbl">Bikes in database</div></div>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.6rem;">
+            <a href="{% url 'home' %}"      class="btn btn-navy btn-sm">🔍 Browse</a>
+            <a href="{% url 'analytics' %}" class="btn btn-outline btn-sm">📊 Analytics</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">📋 Expected CSV Format</div>
+          <div class="csv-preview">
+            <table>
+              <thead>
+                <tr>
+                  <th>bike_name</th><th>brand</th><th>year</th>
+                  <th>fuel_type</th><th>kms_driven</th><th>engine_capacity_cc</th><th>price_usd</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Honda CB300R</td><td>Honda</td><td>2021</td><td>Petrol</td><td>12000</td><td>286</td><td>4500</td></tr>
+                <tr><td>Ola S1 Pro</td><td>Ola</td><td>2023</td><td>Electric</td><td>4500</td><td>0</td><td>1350</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:.75rem;">
+            ⚠️ <strong>Note:</strong> Importing will add records to the existing database. Use Admin panel to delete records.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function showName(input) {
+  document.getElementById('fname').textContent = input.files[0] ? '📄 ' + input.files[0].name : '';
+}
+</script>
+{% endblock %}

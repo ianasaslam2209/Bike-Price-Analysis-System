@@ -1,0 +1,52 @@
+{% extends 'bikes/base.html' %}
+{% block title %}Add Bike — BikeAnalysis{% endblock %}
+{% block content %}
+<div class="auth-card" style="max-width:600px">
+  <h2>➕ Add New Bike</h2>
+  <p style="color:var(--text-muted);margin-bottom:1.5rem">Record will be added to DB and CSV</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Bike Name</label>
+      <input type="text" name="bike_name" placeholder="e.g. Honda CB300R" required autofocus>
+    </div>
+    <div class="form-group">
+      <label>Brand</label>
+      <input type="text" name="brand" placeholder="e.g. Honda" required>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div class="form-group">
+        <label>Year</label>
+        <input type="number" name="year" placeholder="2024" required>
+      </div>
+      <div class="form-group">
+        <label>Fuel Type</label>
+        <select name="fuel_type">
+          <option value="Petrol">Petrol</option>
+          <option value="Electric">Electric</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div class="form-group">
+        <label>KMs Driven</label>
+        <input type="number" name="kms_driven" placeholder="0" required>
+      </div>
+      <div class="form-group">
+        <label>Engine CC</label>
+        <input type="number" name="engine_capacity_cc" placeholder="0">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Price (USD)</label>
+      <input type="number" step="0.01" name="price_usd" placeholder="1500.00" required>
+    </div>
+
+    <div style="display:flex;gap:1rem">
+      <button type="submit" class="btn-primary btn-success" style="width:auto;flex:1">✓ Add Bike</button>
+      <a href="{% url 'admin_records' %}" style="flex:1;display:block;text-align:center;padding:.85rem;border:1.5px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text)">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

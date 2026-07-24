@@ -1,0 +1,90 @@
+{% extends 'bikes/base.html' %}
+{% block title %}{{ bike.bike_name }} — Bike Price Analysis{% endblock %}
+
+{% block content %}
+<div class="page-hd">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="{% url 'home' %}">Browse</a> › {{ bike.brand }} › {{ bike.bike_name }}</div>
+    <h2>{{ bike.bike_name }}</h2>
+    <p>{{ bike.brand }} &bull; {{ bike.year }} &bull; {{ bike.fuel_type }}</p>
+  </div>
+</div>
+
+<div class="wrap section">
+  <div class="detail-grid">
+
+    <!-- LEFT PANEL -->
+    <div>
+      <div class="detail-hero">
+        <span class="big-icon">{% if bike.fuel_type == 'Electric' %}⚡{% else %}🏍️{% endif %}</span>
+        <span class="tag tag-{% if bike.fuel_type == 'Electric' %}electric{% else %}petrol{% endif %}" style="font-size:.8rem;padding:.25rem .75rem;margin-bottom:.75rem;display:inline-block;">{{ bike.fuel_type }}</span>
+        <h1>{{ bike.bike_name }}</h1>
+        <div class="sub">{{ bike.brand }}</div>
+        <div class="detail-price">${{ bike.price_usd }}</div>
+        <div style="display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;">
+          <a href="{% url 'compare' %}?ids={{ bike.pk }}" class="btn btn-primary">⚖️ Compare</a>
+          <a href="{% url 'home' %}" class="btn btn-ghost">← Browse</a>
+          <a href="{% url 'analytics' %}" class="btn btn-ghost">📊 Analytics</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">📋 Full Specifications</div>
+        <div class="spec-grid2">
+          <div class="spec-box"><div class="lbl">Brand</div><div class="val">{{ bike.brand }}</div></div>
+          <div class="spec-box"><div class="lbl">Year</div><div class="val">{{ bike.year }}</div></div>
+          <div class="spec-box"><div class="lbl">Fuel Type</div><div class="val">{{ bike.fuel_type }}</div></div>
+          <div class="spec-box">
+            <div class="lbl">Engine</div>
+            <div class="val">{% if bike.engine_capacity_cc > 0 %}{{ bike.engine_capacity_cc }} CC{% else %}Electric Motor{% endif %}</div>
+          </div>
+          <div class="spec-box"><div class="lbl">KMs Driven</div><div class="val">{{ bike.kms_driven }} km</div></div>
+          <div class="spec-box"><div class="lbl">Price (USD)</div><div class="val" style="color:var(--red)">${{ bike.price_usd }}</div></div>
+        </div>
+
+        <!-- Price vs brand avg -->
+        <div class="insight-box">
+          <div class="title">💡 Price Driver Insight</div>
+          {% if bike.price_usd > brand_avg %}
+            <p style="font-size:.88rem;">This bike is priced <strong>${{ bike.price_usd|floatformat:0 }}</strong> — above the {{ bike.brand }} brand average of <strong>${{ brand_avg }}</strong>. Higher engine capacity or lower mileage likely drives the premium.</p>
+          {% else %}
+            <p style="font-size:.88rem;">This bike is priced <strong>${{ bike.price_usd|floatformat:0 }}</strong> — below the {{ bike.brand }} brand average of <strong>${{ brand_avg }}</strong>. Higher mileage or older year drives the discount.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIMILAR BIKES -->
+  {% if similar %}
+  <div style="margin-top:2rem;">
+    <h3 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:1rem;">🏍️ More from {{ bike.brand }}</h3>
+    <div class="bike-grid">
+      {% for s in similar %}
+      <div class="bike-card">
+        <div class="bc-head">
+          <span class="bc-fuel fuel-{% if s.fuel_type == 'Electric' %}electric{% else %}petrol{% endif %}">{{ s.fuel_type }}</span>
+          <span class="bc-icon">{% if s.fuel_type == 'Electric' %}⚡{% else %}🏍️{% endif %}</span>
+          <div class="bc-name">{{ s.bike_name }}</div>
+          <div class="bc-brand">{{ s.brand }} &bull; {{ s.year }}</div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-specs">
+            <div><div class="spec-lbl">Engine</div><div class="spec-val">{% if s.engine_capacity_cc > 0 %}{{ s.engine_capacity_cc }} cc{% else %}Electric{% endif %}</div></div>
+            <div><div class="spec-lbl">KMs</div><div class="spec-val">{{ s.kms_driven }}</div></div>
+          </div>
+          <div class="bc-price">${{ s.price_usd }}</div>
+        </div>
+        <div class="bc-foot">
+          <a href="{% url 'bike_detail' s.pk %}" class="btn btn-navy btn-sm">View Details</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

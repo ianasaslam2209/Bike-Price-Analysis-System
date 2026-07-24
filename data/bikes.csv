@@ -1,0 +1,502 @@
+bike_name,brand,year,fuel_type,kms_driven,engine_capacity_cc,price_usd
+Ola S1 Air,Ola,2023,Electric,17983,0,1179.00
+Harley-Davidson Street 750,Harley-Davidson,2018,Petrol,63173,948,3179.00
+Royal Enfield Meteor 350,Royal Enfield,2019,Petrol,65315,312,1676.00
+Ather 450X Gen 3,Ather,2020,Electric,10772,0,890.00
+Harley-Davidson Fat Boy,Harley-Davidson,2018,Petrol,22191,1000,8179.00
+Bajaj Pulsar 150,Bajaj,2020,Petrol,5748,155,1046.00
+Suzuki Burgman Street,Suzuki,2019,Petrol,2436,1000,10317.00
+Bajaj Pulsar NS200,Bajaj,2019,Petrol,45281,200,1107.00
+Suzuki Access 125,Suzuki,2022,Petrol,5775,110,589.00
+Yamaha YZF-R3,Yamaha,2016,Petrol,28556,1340,5683.00
+Kawasaki Ninja ZX-10R,Kawasaki,2021,Petrol,44778,1000,10920.00
+TVS Apache RR 310,TVS,2020,Petrol,44386,350,2089.00
+Ola S1 Air,Ola,2021,Electric,3467,0,975.00
+Suzuki Hayabusa,Suzuki,2023,Petrol,57801,1000,12946.00
+KTM Duke 200,KTM,2022,Petrol,64567,200,1484.00
+Bajaj Platina 110,Bajaj,2022,Petrol,38047,125,729.00
+Suzuki Gixxer 250,Suzuki,2018,Petrol,69557,250,661.00
+TVS Jupiter,TVS,2021,Petrol,44238,125,555.00
+Kawasaki Versys 650,Kawasaki,2018,Petrol,54182,750,3524.00
+Yamaha YZF-R3,Yamaha,2019,Petrol,54607,1000,8001.00
+Bajaj Platina 110,Bajaj,2022,Petrol,24449,125,555.00
+Kawasaki Ninja 300,Kawasaki,2022,Petrol,57605,350,2594.00
+Hero Glamour,Hero,2020,Petrol,59124,1000,9164.00
+Harley-Davidson Street 750,Harley-Davidson,2023,Petrol,45492,948,6637.00
+Yamaha YZF-R3,Yamaha,2019,Petrol,5159,1340,10065.00
+Kawasaki Ninja 300,Kawasaki,2019,Petrol,57392,399,1760.00
+Ola S1 Pro Gen 2,Ola,2022,Electric,8865,0,1183.00
+TVS Jupiter,TVS,2019,Petrol,32681,110,331.00
+Royal Enfield Interceptor 650,Royal Enfield,2019,Petrol,61897,948,3856.00
+TVS Radeon,TVS,2018,Petrol,67392,1340,6331.00
+Harley-Davidson Fat Boy,Harley-Davidson,2020,Petrol,47127,1000,9700.00
+Royal Enfield Classic 350,Royal Enfield,2022,Petrol,10551,300,3098.00
+TVS Radeon,TVS,2019,Petrol,49311,1340,8286.00
+Ola S1 Pro Gen 2,Ola,2020,Electric,7245,0,889.00
+Yamaha FZ S V3,Yamaha,2024,Petrol,5621,160,1437.00
+Suzuki Gixxer 250,Suzuki,2020,Petrol,42044,200,1247.00
+KTM RC 390,KTM,2015,Petrol,25902,373,1243.00
+TVS Apache RR 310,TVS,2019,Petrol,43362,399,1956.00
+Suzuki Gixxer 250,Suzuki,2022,Petrol,49692,200,1457.00
+Harley-Davidson Fat Boy,Harley-Davidson,2019,Petrol,40971,1340,8556.00
+TVS Ntorq 125,TVS,2019,Petrol,45726,125,522.00
+Ather 450S,Ather,2023,Electric,5254,0,1152.00
+Royal Enfield Himalayan 411,Royal Enfield,2023,Petrol,22718,1340,14319.00
+TVS Apache RR 310,TVS,2021,Petrol,44630,399,2505.00
+Honda Hness CB350,Honda,2018,Petrol,29262,399,1646.00
+Ather 450X Gen 3,Ather,2022,Electric,1001,0,1130.00
+Harley-Davidson Street 750,Harley-Davidson,2019,Petrol,30063,883,4598.00
+Ather 450S,Ather,2020,Electric,5590,0,930.00
+Bajaj Pulsar 150,Bajaj,2021,Petrol,42279,150,961.00
+Royal Enfield Himalayan 411,Royal Enfield,2017,Petrol,57511,1340,5803.00
+Bajaj Pulsar NS200,Bajaj,2019,Petrol,36892,250,1039.00
+Suzuki Burgman Street,Suzuki,2015,Petrol,58372,1340,5587.00
+Hero Xpulse 200,Hero,2023,Petrol,60929,250,1520.00
+TVS Apache RR 310,TVS,2017,Petrol,35440,312,1506.00
+Ather 450S,Ather,2022,Electric,11139,0,1199.00
+TVS Radeon,TVS,2020,Petrol,16316,1000,10869.00
+Yamaha YZF-R15 V4,Yamaha,2022,Petrol,41316,160,1005.00
+Suzuki Hayabusa,Suzuki,2021,Petrol,41104,1340,11107.00
+Kawasaki Ninja ZX-10R,Kawasaki,2022,Petrol,42869,1000,12201.00
+Harley-Davidson Street 750,Harley-Davidson,2020,Petrol,6771,650,5676.00
+Hero Xpulse 200,Hero,2022,Petrol,59051,250,1508.00
+Harley-Davidson Iron 883,Harley-Davidson,2022,Petrol,2953,883,6851.00
+Bajaj Pulsar NS200,Bajaj,2018,Petrol,3099,200,1037.00
+KTM Adventure 390,KTM,2015,Petrol,19289,312,1209.00
+Honda CB Shine,Honda,2019,Petrol,3830,125,516.00
+Ather 450X Gen 3,Ather,2022,Electric,7600,0,1148.00
+Harley-Davidson Iron 883,Harley-Davidson,2019,Petrol,18924,750,4756.00
+Ola S1 Pro Gen 2,Ola,2022,Electric,5674,0,1169.00
+Yamaha FZ S V3,Yamaha,2020,Petrol,23006,160,802.00
+Kawasaki Z900,Kawasaki,2016,Petrol,62623,650,2786.00
+Honda Hness CB350,Honda,2018,Petrol,31849,350,1700.00
+Harley-Davidson Sportster S,Harley-Davidson,2022,Petrol,49386,1340,12090.00
+Honda Hornet 2.0,Honda,2020,Petrol,5745,1000,11288.00
+Royal Enfield Bullet 350,Royal Enfield,2022,Petrol,68911,350,2442.00
+Suzuki Access 125,Suzuki,2021,Petrol,36007,110,473.00
+TVS Ntorq 125,TVS,2020,Petrol,57834,125,562.00
+Bajaj Dominar 400,Bajaj,2018,Petrol,22463,1000,8286.00
+Royal Enfield Meteor 350,Royal Enfield,2020,Petrol,20747,300,2368.00
+TVS Apache RTR 160,TVS,2019,Petrol,67183,155,656.00
+Suzuki Access 125,Suzuki,2020,Petrol,46930,125,506.00
+Yamaha Aerox 155,Yamaha,2018,Petrol,14838,150,623.00
+Kawasaki Versys 650,Kawasaki,2016,Petrol,29010,650,2737.00
+KTM Adventure 390,KTM,2023,Petrol,15026,399,3125.00
+Royal Enfield Himalayan 411,Royal Enfield,2020,Petrol,53778,1000,9231.00
+KTM RC 200,KTM,2016,Petrol,20702,250,632.00
+Ather 450X Gen 3,Ather,2015,Electric,3550,0,524.00
+Harley-Davidson Sportster S,Harley-Davidson,2016,Petrol,59391,1000,5700.00
+Yamaha MT-15 V2,Yamaha,2015,Petrol,16096,150,398.00
+Bajaj Platina 110,Bajaj,2015,Petrol,41088,110,250.00
+Ather 450S,Ather,2022,Electric,2898,0,1161.00
+TVS Apache RR 310,TVS,2020,Petrol,45974,373,2056.00
+KTM Duke 200,KTM,2021,Petrol,25816,200,1536.00
+Ather 450S,Ather,2022,Electric,1725,0,1291.00
+Bajaj Avenger Cruise 220,Bajaj,2018,Petrol,17608,250,974.00
+Royal Enfield Interceptor 650,Royal Enfield,2018,Petrol,40472,650,3744.00
+Suzuki Gixxer 250,Suzuki,2018,Petrol,50274,220,894.00
+Royal Enfield Interceptor 650,Royal Enfield,2015,Petrol,37022,883,2800.00
+Hero Maestro Edge,Hero,2020,Petrol,4052,1000,11370.00
+Kawasaki Z900,Kawasaki,2022,Petrol,45237,948,6156.00
+TVS Apache RR 310,TVS,2021,Petrol,15171,399,2592.00
+Ola S1 Pro Gen 2,Ola,2019,Electric,16626,0,907.00
+Yamaha Aerox 155,Yamaha,2022,Petrol,36811,160,999.00
+Yamaha Aerox 155,Yamaha,2021,Petrol,65964,155,777.00
+Ola S1 Pro Gen 2,Ola,2021,Electric,4852,0,1062.00
+Kawasaki Z900,Kawasaki,2015,Petrol,30072,750,2737.00
+Ather 450X Gen 3,Ather,2024,Electric,8364,0,1349.00
+Royal Enfield Bullet 350,Royal Enfield,2021,Petrol,5685,373,2855.00
+Hero Maestro Edge,Hero,2017,Petrol,32485,1340,6632.00
+Harley-Davidson Iron 883,Harley-Davidson,2023,Petrol,3312,750,7591.00
+Suzuki Access 125,Suzuki,2023,Petrol,13285,110,764.00
+TVS Ntorq 125,TVS,2021,Petrol,62087,110,516.00
+Hero Xpulse 200,Hero,2021,Petrol,10540,250,1413.00
+TVS Apache RR 310,TVS,2016,Petrol,39566,373,1151.00
+Suzuki Access 125,Suzuki,2022,Petrol,13621,110,581.00
+Ola S1 Air,Ola,2023,Electric,9881,0,1162.00
+Harley-Davidson Iron 883,Harley-Davidson,2017,Petrol,30526,750,3194.00
+Honda Hness CB350,Honda,2019,Petrol,6689,300,2255.00
+Yamaha Aerox 155,Yamaha,2021,Petrol,12394,160,1031.00
+Hero Maestro Edge,Hero,2018,Petrol,65053,1340,6404.00
+TVS Ntorq 125,TVS,2020,Petrol,27050,125,480.00
+KTM Duke 200,KTM,2022,Petrol,44680,220,1485.00
+TVS Ntorq 125,TVS,2018,Petrol,30805,110,443.00
+Ola S1 Pro Gen 2,Ola,2021,Electric,6517,0,1158.00
+KTM RC 390,KTM,2022,Petrol,50363,300,2581.00
+Honda CBR500R,Honda,2019,Petrol,25339,1000,9414.00
+Ola S1 Air,Ola,2022,Electric,6230,0,1247.00
+TVS Apache RTR 160,TVS,2020,Petrol,52478,150,807.00
+Harley-Davidson Street 750,Harley-Davidson,2020,Petrol,3400,948,5682.00
+KTM Duke 390,KTM,2017,Petrol,30974,312,1558.00
+Kawasaki Z900,Kawasaki,2023,Petrol,9721,750,7466.00
+Ola S1 Air,Ola,2018,Electric,10751,0,690.00
+Ather 450X Gen 3,Ather,2018,Electric,12786,0,680.00
+Honda Activa 6G,Honda,2022,Petrol,7093,110,724.00
+Royal Enfield Bullet 350,Royal Enfield,2016,Petrol,36291,312,1161.00
+Harley-Davidson Iron 883,Harley-Davidson,2019,Petrol,52054,650,4173.00
+Ola S1 Pro Gen 2,Ola,2016,Electric,7317,0,566.00
+Yamaha Aerox 155,Yamaha,2022,Petrol,26527,150,1172.00
+TVS Jupiter,TVS,2024,Petrol,62782,125,639.00
+TVS Jupiter,TVS,2019,Petrol,10029,125,436.00
+Ather 450S,Ather,2016,Electric,11406,0,592.00
+Ather 450X Gen 3,Ather,2022,Electric,9715,0,1125.00
+Honda CB Shine,Honda,2015,Petrol,29879,110,373.00
+Royal Enfield Bullet 350,Royal Enfield,2020,Petrol,66138,350,2006.00
+TVS Apache RR 310,TVS,2022,Petrol,38971,300,2705.00
+Bajaj Avenger Cruise 220,Bajaj,2021,Petrol,50967,220,1413.00
+Bajaj Dominar 400,Bajaj,2022,Petrol,26122,1340,13004.00
+Kawasaki Ninja 300,Kawasaki,2020,Petrol,41574,300,2063.00
+Ather 450X Gen 3,Ather,2017,Electric,7559,0,668.00
+Royal Enfield Interceptor 650,Royal Enfield,2017,Petrol,10257,883,3734.00
+KTM RC 200,KTM,2020,Petrol,30662,220,1233.00
+Yamaha MT-15 V2,Yamaha,2019,Petrol,66248,155,594.00
+Royal Enfield Meteor 350,Royal Enfield,2022,Petrol,64745,399,2407.00
+Royal Enfield Bullet 350,Royal Enfield,2020,Petrol,53887,312,2122.00
+Hero Maestro Edge,Hero,2019,Petrol,4921,1340,10223.00
+Yamaha YZF-R15 V4,Yamaha,2018,Petrol,22881,155,682.00
+Hero Maestro Edge,Hero,2017,Petrol,63719,1340,5754.00
+Bajaj Pulsar NS200,Bajaj,2022,Petrol,43362,220,1522.00
+Ather 450X Gen 3,Ather,2017,Electric,7778,0,566.00
+Suzuki Burgman Street,Suzuki,2017,Petrol,63959,1000,5664.00
+KTM Adventure 390,KTM,2020,Petrol,3224,312,2634.00
+Yamaha Aerox 155,Yamaha,2018,Petrol,19362,160,718.00
+Yamaha FZ S V3,Yamaha,2018,Petrol,62048,155,492.00
+Ola S1 Air,Ola,2020,Electric,17293,0,999.00
+Yamaha MT-15 V2,Yamaha,2020,Petrol,5543,160,880.00
+Kawasaki Ninja ZX-10R,Kawasaki,2021,Petrol,41506,1340,11060.00
+Ola S1 Pro Gen 2,Ola,2022,Electric,4120,0,1201.00
+Yamaha MT-15 V2,Yamaha,2019,Petrol,27421,155,772.00
+KTM Duke 390,KTM,2022,Petrol,22052,300,2934.00
+Harley-Davidson Iron 883,Harley-Davidson,2022,Petrol,15098,883,6673.00
+Bajaj Pulsar NS200,Bajaj,2024,Petrol,24310,220,1840.00
+Yamaha MT-15 V2,Yamaha,2019,Petrol,13023,150,796.00
+Kawasaki Ninja 400,Kawasaki,2018,Petrol,66780,1340,6413.00
+Royal Enfield Bullet 350,Royal Enfield,2018,Petrol,31959,373,1782.00
+Harley-Davidson Street 750,Harley-Davidson,2018,Petrol,61045,883,3307.00
+Ola S1 Pro Gen 2,Ola,2021,Electric,8221,0,1076.00
+Harley-Davidson Sportster S,Harley-Davidson,2019,Petrol,48192,1340,8226.00
+Bajaj Platina 110,Bajaj,2020,Petrol,17230,110,592.00
+Harley-Davidson Street 750,Harley-Davidson,2015,Petrol,15792,948,2857.00
+Honda CB Shine,Honda,2017,Petrol,30615,125,250.00
+Hero Splendor Plus,Hero,2017,Petrol,52907,125,261.00
+Ola S1 Pro Gen 2,Ola,2017,Electric,4166,0,693.00
+Harley-Davidson Street 750,Harley-Davidson,2022,Petrol,27127,948,6523.00
+Harley-Davidson Fat Boy,Harley-Davidson,2019,Petrol,56392,1340,7925.00
+Ather 450S,Ather,2017,Electric,12416,0,510.00
+Royal Enfield Himalayan 411,Royal Enfield,2021,Petrol,15260,1000,12300.00
+Royal Enfield Classic 350,Royal Enfield,2023,Petrol,55106,312,2789.00
+KTM RC 200,KTM,2017,Petrol,62765,250,617.00
+Hero HF Deluxe,Hero,2019,Petrol,27020,1340,9119.00
+Hero HF Deluxe,Hero,2022,Petrol,34713,1340,12536.00
+Hero Maestro Edge,Hero,2023,Petrol,8457,1340,14965.00
+Suzuki Access 125,Suzuki,2015,Petrol,58253,125,250.00
+Ather 450X Gen 3,Ather,2021,Electric,15911,0,1117.00
+TVS Radeon,TVS,2019,Petrol,23158,1000,9503.00
+KTM Duke 390,KTM,2016,Petrol,15845,399,1218.00
+Hero Splendor Plus,Hero,2015,Petrol,35343,125,274.00
+Ola S1 Pro Gen 2,Ola,2016,Electric,5951,0,599.00
+Royal Enfield Classic 350,Royal Enfield,2020,Petrol,59816,300,1926.00
+Ola S1 Air,Ola,2016,Electric,1475,0,565.00
+Bajaj Dominar 400,Bajaj,2021,Petrol,47407,1340,10772.00
+Honda Hornet 2.0,Honda,2022,Petrol,26669,1000,12872.00
+Ather 450X Gen 3,Ather,2016,Electric,2078,0,503.00
+Harley-Davidson Iron 883,Harley-Davidson,2020,Petrol,4073,883,5599.00
+Ather 450X Gen 3,Ather,2019,Electric,10758,0,894.00
+Ather 450X Gen 3,Ather,2021,Electric,8623,0,962.00
+KTM Adventure 390,KTM,2022,Petrol,54025,373,2685.00
+Suzuki Burgman Street,Suzuki,2017,Petrol,14606,1000,7226.00
+Honda CB Shine,Honda,2016,Petrol,56011,110,322.00
+Yamaha MT-15 V2,Yamaha,2023,Petrol,55211,150,1114.00
+KTM Duke 200,KTM,2022,Petrol,28162,200,1454.00
+Suzuki Access 125,Suzuki,2016,Petrol,45837,110,382.00
+Ola S1 Air,Ola,2018,Electric,16580,0,807.00
+Hero Glamour,Hero,2021,Petrol,41869,1000,10989.00
+Suzuki Hayabusa,Suzuki,2020,Petrol,10056,1000,11200.00
+TVS Ntorq 125,TVS,2018,Petrol,8898,125,424.00
+Ather 450S,Ather,2017,Electric,17028,0,633.00
+Royal Enfield Meteor 350,Royal Enfield,2018,Petrol,2995,399,1898.00
+Suzuki Gixxer SF 150,Suzuki,2020,Petrol,37580,150,926.00
+Harley-Davidson Sportster S,Harley-Davidson,2019,Petrol,67960,1000,7487.00
+Ola S1 Air,Ola,2019,Electric,17994,0,752.00
+Suzuki Gixxer SF 150,Suzuki,2022,Petrol,57976,155,1098.00
+Hero Xpulse 200,Hero,2017,Petrol,58985,200,714.00
+Suzuki Gixxer SF 150,Suzuki,2023,Petrol,25382,155,1249.00
+Bajaj Platina 110,Bajaj,2019,Petrol,13340,110,517.00
+Royal Enfield Interceptor 650,Royal Enfield,2019,Petrol,59037,883,3881.00
+Royal Enfield Classic 350,Royal Enfield,2020,Petrol,68942,373,1919.00
+Yamaha YZF-R15 V4,Yamaha,2021,Petrol,44324,160,858.00
+KTM Duke 200,KTM,2024,Petrol,49779,220,1755.00
+KTM RC 200,KTM,2020,Petrol,41828,250,1078.00
+Kawasaki Ninja ZX-10R,Kawasaki,2023,Petrol,13844,1000,14829.00
+TVS Apache RTR 160,TVS,2022,Petrol,32167,155,1037.00
+Yamaha YZF-R3,Yamaha,2020,Petrol,31657,1340,10376.00
+Bajaj Pulsar NS200,Bajaj,2019,Petrol,44031,200,941.00
+Ather 450S,Ather,2019,Electric,7550,0,757.00
+Royal Enfield Classic 350,Royal Enfield,2022,Petrol,47380,350,2634.00
+Royal Enfield Bullet 350,Royal Enfield,2021,Petrol,55073,300,2333.00
+Harley-Davidson Sportster S,Harley-Davidson,2023,Petrol,9697,1340,14848.00
+Bajaj Platina 110,Bajaj,2017,Petrol,28196,125,289.00
+Kawasaki Ninja 300,Kawasaki,2022,Petrol,67010,312,2393.00
+Suzuki Gixxer 250,Suzuki,2019,Petrol,8837,200,1234.00
+Hero Xpulse 200,Hero,2023,Petrol,42230,200,1678.00
+Kawasaki Z900,Kawasaki,2021,Petrol,20879,883,6014.00
+TVS Apache RTR 160,TVS,2016,Petrol,31831,155,373.00
+Hero Maestro Edge,Hero,2020,Petrol,34736,1000,10213.00
+Suzuki Gixxer 250,Suzuki,2018,Petrol,43974,200,977.00
+KTM Duke 200,KTM,2022,Petrol,33931,200,1428.00
+KTM RC 390,KTM,2016,Petrol,4463,300,1482.00
+Royal Enfield Interceptor 650,Royal Enfield,2020,Petrol,59651,948,4537.00
+Ola S1 Pro Gen 2,Ola,2021,Electric,14682,0,963.00
+KTM RC 390,KTM,2021,Petrol,32511,312,2591.00
+Suzuki Burgman Street,Suzuki,2020,Petrol,48634,1340,9445.00
+Honda Activa 6G,Honda,2022,Petrol,32862,125,536.00
+KTM RC 200,KTM,2019,Petrol,51479,250,949.00
+Yamaha YZF-R3,Yamaha,2020,Petrol,24031,1000,10646.00
+Honda CB Shine,Honda,2021,Petrol,52588,110,581.00
+Hero Maestro Edge,Hero,2021,Petrol,39651,1000,11049.00
+Harley-Davidson Iron 883,Harley-Davidson,2018,Petrol,40361,883,3619.00
+TVS Radeon,TVS,2022,Petrol,33623,1340,12702.00
+Yamaha Aerox 155,Yamaha,2018,Petrol,33073,150,737.00
+Honda Activa 6G,Honda,2019,Petrol,35684,125,413.00
+Kawasaki Versys 650,Kawasaki,2022,Petrol,46183,750,6110.00
+Royal Enfield Himalayan 411,Royal Enfield,2021,Petrol,18195,1000,12102.00
+TVS Apache RTR 160,TVS,2019,Petrol,5586,160,858.00
+Kawasaki Ninja 300,Kawasaki,2021,Petrol,20031,300,2650.00
+Suzuki Burgman Street,Suzuki,2018,Petrol,15557,1340,8554.00
+Ola S1 Air,Ola,2020,Electric,15117,0,968.00
+Yamaha YZF-R3,Yamaha,2022,Petrol,25057,1000,12991.00
+Royal Enfield Bullet 350,Royal Enfield,2020,Petrol,7378,373,2480.00
+Yamaha FZ S V3,Yamaha,2016,Petrol,9906,160,462.00
+Suzuki Access 125,Suzuki,2023,Petrol,67313,125,636.00
+Kawasaki Ninja 300,Kawasaki,2023,Petrol,7478,373,3212.00
+Suzuki Access 125,Suzuki,2020,Petrol,18089,110,564.00
+Yamaha Aerox 155,Yamaha,2021,Petrol,20674,155,900.00
+Hero HF Deluxe,Hero,2020,Petrol,18187,1340,10724.00
+Hero Maestro Edge,Hero,2016,Petrol,54777,1340,5667.00
+Royal Enfield Himalayan 411,Royal Enfield,2020,Petrol,36993,1000,9968.00
+TVS Ntorq 125,TVS,2020,Petrol,2191,125,467.00
+KTM Duke 200,KTM,2022,Petrol,58863,250,1391.00
+Honda CB300R,Honda,2022,Petrol,60587,373,2615.00
+Suzuki Hayabusa,Suzuki,2015,Petrol,45435,1000,5727.00
+Honda CB Shine,Honda,2020,Petrol,15961,110,534.00
+Hero Glamour,Hero,2022,Petrol,64574,1340,11458.00
+Ather 450X Gen 3,Ather,2019,Electric,16661,0,844.00
+KTM Duke 200,KTM,2018,Petrol,30644,200,1059.00
+Hero Xpulse 200,Hero,2022,Petrol,51560,200,1444.00
+Harley-Davidson Street 750,Harley-Davidson,2022,Petrol,34414,883,6423.00
+Kawasaki Versys 650,Kawasaki,2016,Petrol,25463,750,2878.00
+Suzuki Access 125,Suzuki,2018,Petrol,42305,110,320.00
+KTM RC 390,KTM,2023,Petrol,28445,399,3128.00
+TVS Apache RTR 160,TVS,2020,Petrol,34106,155,886.00
+Ather 450S,Ather,2015,Electric,6880,0,472.00
+Bajaj Pulsar 150,Bajaj,2023,Petrol,68539,155,951.00
+Hero HF Deluxe,Hero,2021,Petrol,12649,1340,12325.00
+Ather 450X Gen 3,Ather,2016,Electric,16423,0,505.00
+Harley-Davidson Street 750,Harley-Davidson,2020,Petrol,31899,948,5213.00
+Ola S1 Air,Ola,2022,Electric,13467,0,1027.00
+Royal Enfield Meteor 350,Royal Enfield,2020,Petrol,3134,312,2442.00
+Kawasaki Ninja ZX-10R,Kawasaki,2016,Petrol,4981,1000,6489.00
+Kawasaki Ninja 400,Kawasaki,2023,Petrol,51344,1000,13200.00
+Harley-Davidson Sportster S,Harley-Davidson,2020,Petrol,49793,1000,9534.00
+Hero Maestro Edge,Hero,2019,Petrol,18196,1340,9527.00
+TVS Jupiter,TVS,2023,Petrol,28112,125,652.00
+Hero Maestro Edge,Hero,2020,Petrol,21569,1000,10779.00
+Ola S1 Pro Gen 2,Ola,2018,Electric,1306,0,805.00
+Bajaj Dominar 400,Bajaj,2020,Petrol,55721,1340,9140.00
+Ather 450X Gen 3,Ather,2022,Electric,14871,0,1085.00
+Bajaj Dominar 400,Bajaj,2016,Petrol,63693,1000,5646.00
+Ola S1 Pro Gen 2,Ola,2021,Electric,4192,0,1103.00
+Harley-Davidson Sportster S,Harley-Davidson,2019,Petrol,48498,1340,8300.00
+Harley-Davidson Street 750,Harley-Davidson,2020,Petrol,51620,883,4749.00
+Yamaha FZ S V3,Yamaha,2019,Petrol,23117,160,826.00
+KTM RC 200,KTM,2020,Petrol,31189,220,1167.00
+Yamaha YZF-R3,Yamaha,2019,Petrol,54341,1000,8151.00
+Hero HF Deluxe,Hero,2021,Petrol,26507,1000,11701.00
+Suzuki Burgman Street,Suzuki,2018,Petrol,20338,1340,8273.00
+Kawasaki Z900,Kawasaki,2023,Petrol,38063,750,6919.00
+Suzuki Hayabusa,Suzuki,2020,Petrol,61499,1000,9135.00
+Hero HF Deluxe,Hero,2016,Petrol,16960,1000,5896.00
+Harley-Davidson Street 750,Harley-Davidson,2022,Petrol,39444,750,6203.00
+Suzuki Gixxer 250,Suzuki,2020,Petrol,32557,220,1157.00
+Royal Enfield Bullet 350,Royal Enfield,2019,Petrol,67663,350,1602.00
+Bajaj Avenger Cruise 220,Bajaj,2022,Petrol,52671,200,1395.00
+Ather 450S,Ather,2021,Electric,6652,0,1064.00
+KTM Duke 200,KTM,2020,Petrol,42721,220,1152.00
+Bajaj Avenger Cruise 220,Bajaj,2019,Petrol,18747,200,1249.00
+Kawasaki Ninja 300,Kawasaki,2020,Petrol,11232,399,2338.00
+Yamaha YZF-R15 V4,Yamaha,2020,Petrol,25722,155,921.00
+Ather 450X Gen 3,Ather,2017,Electric,16808,0,632.00
+KTM Duke 200,KTM,2017,Petrol,14276,220,956.00
+Yamaha MT-15 V2,Yamaha,2023,Petrol,40214,160,1207.00
+Ola S1 Pro Gen 2,Ola,2015,Electric,2684,0,380.00
+Kawasaki Ninja 400,Kawasaki,2020,Petrol,60749,1340,9030.00
+TVS Apache RR 310,TVS,2022,Petrol,51693,350,2579.00
+Ola S1 Pro Gen 2,Ola,2018,Electric,1433,0,691.00
+Ather 450X Gen 3,Ather,2021,Electric,9737,0,1112.00
+Harley-Davidson Sportster S,Harley-Davidson,2019,Petrol,43225,1000,8654.00
+KTM Duke 200,KTM,2020,Petrol,20408,220,1186.00
+KTM Duke 200,KTM,2019,Petrol,22214,200,1139.00
+Hero Splendor Plus,Hero,2021,Petrol,20617,125,603.00
+Honda Activa 6G,Honda,2019,Petrol,38831,110,388.00
+Royal Enfield Meteor 350,Royal Enfield,2016,Petrol,43689,373,1346.00
+Honda CB Shine,Honda,2019,Petrol,24261,125,510.00
+Honda CBR500R,Honda,2018,Petrol,42219,1340,7298.00
+Hero Maestro Edge,Hero,2022,Petrol,32702,1000,12657.00
+Suzuki Access 125,Suzuki,2021,Petrol,58143,125,454.00
+Honda Hornet 2.0,Honda,2019,Petrol,35051,1000,8775.00
+Hero HF Deluxe,Hero,2016,Petrol,38345,1340,5601.00
+Honda CB Shine,Honda,2017,Petrol,29671,110,264.00
+Ather 450S,Ather,2022,Electric,14876,0,1030.00
+Harley-Davidson Sportster S,Harley-Davidson,2021,Petrol,61188,1000,10371.00
+Royal Enfield Bullet 350,Royal Enfield,2021,Petrol,32942,350,2438.00
+Harley-Davidson Fat Boy,Harley-Davidson,2019,Petrol,61880,1000,7771.00
+TVS Jupiter,TVS,2017,Petrol,53644,125,384.00
+Harley-Davidson Street 750,Harley-Davidson,2022,Petrol,44089,750,6146.00
+Ola S1 Air,Ola,2022,Electric,17836,0,1002.00
+Hero Xpulse 200,Hero,2016,Petrol,8163,220,755.00
+Bajaj Avenger Cruise 220,Bajaj,2023,Petrol,3883,250,1936.00
+TVS Radeon,TVS,2021,Petrol,68822,1340,10058.00
+Suzuki Gixxer 250,Suzuki,2019,Petrol,53030,250,987.00
+Hero Xpulse 200,Hero,2018,Petrol,34722,220,1045.00
+Harley-Davidson Iron 883,Harley-Davidson,2020,Petrol,14823,883,5557.00
+KTM Duke 390,KTM,2016,Petrol,46593,399,1376.00
+Honda CBR500R,Honda,2020,Petrol,59253,1340,9036.00
+Bajaj Pulsar 150,Bajaj,2022,Petrol,63613,155,889.00
+Bajaj Platina 110,Bajaj,2020,Petrol,57276,110,574.00
+KTM RC 200,KTM,2021,Petrol,31928,200,1497.00
+Honda CBR500R,Honda,2024,Petrol,46400,1340,14616.00
+TVS Jupiter,TVS,2022,Petrol,13486,110,776.00
+Honda CB300R,Honda,2019,Petrol,14040,312,2160.00
+Suzuki Gixxer SF 150,Suzuki,2019,Petrol,44788,160,619.00
+Suzuki Gixxer 250,Suzuki,2018,Petrol,14706,250,1094.00
+Hero Xpulse 200,Hero,2015,Petrol,38899,250,789.00
+Ather 450S,Ather,2015,Electric,14292,0,391.00
+Harley-Davidson Street 750,Harley-Davidson,2022,Petrol,54099,948,5929.00
+Ather 450S,Ather,2020,Electric,16216,0,844.00
+Ola S1 Pro Gen 2,Ola,2015,Electric,9013,0,539.00
+Royal Enfield Meteor 350,Royal Enfield,2020,Petrol,38278,399,2167.00
+Harley-Davidson Street 750,Harley-Davidson,2019,Petrol,38971,883,4290.00
+Yamaha FZ S V3,Yamaha,2022,Petrol,51326,150,952.00
+Ola S1 Air,Ola,2019,Electric,10232,0,914.00
+Ather 450X Gen 3,Ather,2020,Electric,9563,0,962.00
+Hero Maestro Edge,Hero,2024,Petrol,50672,1340,14421.00
+Ather 450X Gen 3,Ather,2017,Electric,11199,0,543.00
+Royal Enfield Meteor 350,Royal Enfield,2024,Petrol,56411,399,3141.00
+Ola S1 Air,Ola,2015,Electric,7794,0,407.00
+Suzuki Burgman Street,Suzuki,2017,Petrol,37829,1340,6384.00
+Hero Maestro Edge,Hero,2021,Petrol,16669,1340,12097.00
+Kawasaki Ninja 400,Kawasaki,2020,Petrol,32218,1340,10185.00
+Harley-Davidson Iron 883,Harley-Davidson,2016,Petrol,56160,948,2859.00
+Royal Enfield Bullet 350,Royal Enfield,2019,Petrol,24382,399,2013.00
+Honda CBR500R,Honda,2021,Petrol,42859,1000,10964.00
+TVS Jupiter,TVS,2022,Petrol,56098,125,603.00
+Harley-Davidson Street 750,Harley-Davidson,2021,Petrol,31921,750,5822.00
+Yamaha FZ S V3,Yamaha,2019,Petrol,11340,150,920.00
+Honda Hornet 2.0,Honda,2019,Petrol,47501,1340,8392.00
+Kawasaki Ninja 300,Kawasaki,2019,Petrol,35120,312,1848.00
+Kawasaki Z900,Kawasaki,2019,Petrol,7881,883,5037.00
+KTM Duke 200,KTM,2023,Petrol,17744,250,1678.00
+Honda Activa 6G,Honda,2019,Petrol,25408,125,490.00
+Royal Enfield Bullet 350,Royal Enfield,2022,Petrol,66453,312,2583.00
+Ola S1 Air,Ola,2015,Electric,17133,0,465.00
+Hero Xpulse 200,Hero,2018,Petrol,33497,250,1012.00
+Harley-Davidson Fat Boy,Harley-Davidson,2020,Petrol,32600,1340,10329.00
+Hero Splendor Plus,Hero,2022,Petrol,17659,125,599.00
+Kawasaki Ninja ZX-10R,Kawasaki,2023,Petrol,52363,1000,13058.00
+Yamaha YZF-R3,Yamaha,2022,Petrol,53236,1340,11748.00
+Honda Activa 6G,Honda,2018,Petrol,51553,110,431.00
+Yamaha MT-15 V2,Yamaha,2020,Petrol,15539,160,1012.00
+KTM Adventure 390,KTM,2019,Petrol,17222,350,2185.00
+Hero Splendor Plus,Hero,2019,Petrol,67091,125,359.00
+Kawasaki Ninja 300,Kawasaki,2015,Petrol,13004,300,1205.00
+Royal Enfield Meteor 350,Royal Enfield,2018,Petrol,62439,399,1508.00
+KTM Duke 200,KTM,2019,Petrol,43868,250,1080.00
+Ola S1 Pro Gen 2,Ola,2020,Electric,9302,0,835.00
+Ather 450X Gen 3,Ather,2015,Electric,14927,0,489.00
+Yamaha MT-15 V2,Yamaha,2019,Petrol,62524,150,632.00
+Yamaha MT-15 V2,Yamaha,2020,Petrol,41198,160,774.00
+Ather 450S,Ather,2022,Electric,13707,0,1228.00
+Suzuki Burgman Street,Suzuki,2023,Petrol,49204,1000,13258.00
+TVS Radeon,TVS,2024,Petrol,12099,1340,16108.00
+Suzuki Hayabusa,Suzuki,2022,Petrol,2978,1000,13855.00
+Ola S1 Air,Ola,2021,Electric,14500,0,1111.00
+Yamaha FZ S V3,Yamaha,2023,Petrol,23432,155,1113.00
+Ather 450S,Ather,2017,Electric,13479,0,712.00
+Kawasaki Ninja 300,Kawasaki,2018,Petrol,13995,373,1882.00
+Royal Enfield Bullet 350,Royal Enfield,2019,Petrol,20197,312,2071.00
+Harley-Davidson Street 750,Harley-Davidson,2018,Petrol,26692,883,3955.00
+Honda Hness CB350,Honda,2022,Petrol,25563,350,2876.00
+Ola S1 Air,Ola,2018,Electric,13835,0,716.00
+KTM Duke 200,KTM,2021,Petrol,4080,200,1439.00
+Ola S1 Air,Ola,2022,Electric,1202,0,1150.00
+Ola S1 Pro Gen 2,Ola,2020,Electric,16885,0,853.00
+Yamaha YZF-R15 V4,Yamaha,2018,Petrol,66859,160,546.00
+Hero Glamour,Hero,2021,Petrol,16970,1000,12212.00
+Harley-Davidson Fat Boy,Harley-Davidson,2017,Petrol,55963,1000,5787.00
+Bajaj Dominar 400,Bajaj,2019,Petrol,45066,1000,8468.00
+KTM RC 200,KTM,2020,Petrol,5776,250,1441.00
+KTM RC 200,KTM,2020,Petrol,50597,250,1183.00
+Ola S1 Air,Ola,2022,Electric,9562,0,1109.00
+Royal Enfield Himalayan 411,Royal Enfield,2016,Petrol,33232,1000,5771.00
+TVS Apache RR 310,TVS,2018,Petrol,43442,350,1620.00
+Suzuki Access 125,Suzuki,2022,Petrol,36528,110,553.00
+KTM Duke 390,KTM,2015,Petrol,9946,399,1157.00
+Ola S1 Air,Ola,2021,Electric,2425,0,1059.00
+Ather 450S,Ather,2020,Electric,4466,0,1026.00
+Ola S1 Pro Gen 2,Ola,2020,Electric,8969,0,1011.00
+Yamaha YZF-R15 V4,Yamaha,2022,Petrol,6234,150,1247.00
+Honda Activa 6G,Honda,2021,Petrol,45321,110,563.00
+TVS Apache RR 310,TVS,2015,Petrol,39237,350,1241.00
+KTM RC 390,KTM,2016,Petrol,68782,300,1282.00
+Yamaha FZ S V3,Yamaha,2017,Petrol,8145,155,744.00
+Bajaj Platina 110,Bajaj,2020,Petrol,45692,125,510.00
+Bajaj Platina 110,Bajaj,2020,Petrol,25633,110,500.00
+Hero Splendor Plus,Hero,2024,Petrol,14517,110,704.00
+Yamaha YZF-R3,Yamaha,2015,Petrol,68498,1340,5751.00
+Honda Hornet 2.0,Honda,2016,Petrol,39454,1000,5691.00
+TVS Ntorq 125,TVS,2020,Petrol,65337,110,529.00
+Ather 450X Gen 3,Ather,2022,Electric,8419,0,1204.00
+TVS Jupiter,TVS,2019,Petrol,49404,125,301.00
+Kawasaki Z900,Kawasaki,2017,Petrol,54201,948,2770.00
+Harley-Davidson Street 750,Harley-Davidson,2016,Petrol,66141,883,2871.00
+Harley-Davidson Iron 883,Harley-Davidson,2022,Petrol,18635,883,6702.00
+Royal Enfield Bullet 350,Royal Enfield,2021,Petrol,15910,399,2656.00
+Bajaj Pulsar 150,Bajaj,2020,Petrol,35131,160,847.00
+Suzuki Hayabusa,Suzuki,2021,Petrol,30891,1000,11581.00
+Harley-Davidson Street 750,Harley-Davidson,2017,Petrol,17635,883,3577.00
+Ather 450S,Ather,2023,Electric,12554,0,1312.00
+Ola S1 Pro Gen 2,Ola,2021,Electric,16493,0,920.00
+Bajaj Pulsar 150,Bajaj,2021,Petrol,23218,155,1106.00
+Ather 450X Gen 3,Ather,2020,Electric,5154,0,1010.00
+Kawasaki Ninja 400,Kawasaki,2021,Petrol,65586,1000,10082.00
+Suzuki Gixxer SF 150,Suzuki,2022,Petrol,31253,160,978.00
+Honda Hness CB350,Honda,2021,Petrol,21282,300,2613.00
+Harley-Davidson Street 750,Harley-Davidson,2023,Petrol,2735,750,7654.00
+Hero Xpulse 200,Hero,2019,Petrol,28032,250,1155.00
+KTM Duke 200,KTM,2020,Petrol,16963,250,1395.00
+Honda CBR500R,Honda,2018,Petrol,49952,1000,7045.00
+Ola S1 Air,Ola,2017,Electric,11256,0,614.00
+Yamaha Aerox 155,Yamaha,2021,Petrol,68441,150,791.00
+KTM Duke 200,KTM,2020,Petrol,12677,200,1357.00
+Ather 450S,Ather,2015,Electric,11173,0,474.00
+Royal Enfield Meteor 350,Royal Enfield,2018,Petrol,22141,399,1801.00
+Hero Maestro Edge,Hero,2022,Petrol,61309,1340,11442.00
+TVS Ntorq 125,TVS,2015,Petrol,34143,110,307.00
+KTM Adventure 390,KTM,2019,Petrol,43195,399,2006.00
+Ola S1 Air,Ola,2022,Electric,9952,0,1236.00
+Hero Splendor Plus,Hero,2019,Petrol,6240,125,407.00
+Hero HF Deluxe,Hero,2021,Petrol,48550,1000,10767.00
+Harley-Davidson Street 750,Harley-Davidson,2017,Petrol,16828,750,3531.00
+Harley-Davidson Fat Boy,Harley-Davidson,2021,Petrol,53357,1340,10572.00
+KTM RC 390,KTM,2018,Petrol,31361,350,1748.00
+Royal Enfield Himalayan 411,Royal Enfield,2018,Petrol,55679,1340,6834.00
+Bajaj Avenger Cruise 220,Bajaj,2020,Petrol,15322,200,1441.00
+Suzuki Burgman Street,Suzuki,2023,Petrol,10069,1000,14783.00
+Bajaj Avenger Cruise 220,Bajaj,2023,Petrol,40611,200,1593.00
+TVS Jupiter,TVS,2021,Petrol,4587,125,650.00
+Harley-Davidson Iron 883,Harley-Davidson,2018,Petrol,43603,750,3761.00
+TVS Apache RTR 160,TVS,2019,Petrol,68778,160,639.00
+Ola S1 Pro Gen 2,Ola,2019,Electric,7303,0,736.00
+Yamaha Aerox 155,Yamaha,2019,Petrol,45268,155,671.00
+Harley-Davidson Fat Boy,Harley-Davidson,2017,Petrol,25702,1340,6765.00
+Honda 110,Honda,2018,Petrol,70,110,413.00

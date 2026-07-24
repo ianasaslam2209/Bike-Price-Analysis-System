@@ -1,0 +1,52 @@
+{% extends 'bikes/base.html' %}
+{% block title %}Edit Bike — BikeAnalysis{% endblock %}
+{% block content %}
+<div class="auth-card" style="max-width:600px">
+  <h2>✏️ Edit Bike</h2>
+  <p style="color:var(--text-muted);margin-bottom:1.5rem">ID #{{ bike.pk }} &mdash; Changes will sync to CSV</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Bike Name</label>
+      <input type="text" name="bike_name" value="{{ bike.bike_name }}" required>
+    </div>
+    <div class="form-group">
+      <label>Brand</label>
+      <input type="text" name="brand" value="{{ bike.brand }}" required>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div class="form-group">
+        <label>Year</label>
+        <input type="number" name="year" value="{{ bike.year }}" required>
+      </div>
+      <div class="form-group">
+        <label>Fuel Type</label>
+        <select name="fuel_type">
+          <option value="Petrol"   {% if bike.fuel_type == 'Petrol'   %}selected{% endif %}>Petrol</option>
+          <option value="Electric" {% if bike.fuel_type == 'Electric' %}selected{% endif %}>Electric</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div class="form-group">
+        <label>KMs Driven</label>
+        <input type="number" name="kms_driven" value="{{ bike.kms_driven }}" required>
+      </div>
+      <div class="form-group">
+        <label>Engine CC</label>
+        <input type="number" name="engine_capacity_cc" value="{{ bike.engine_capacity_cc }}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Price (USD)</label>
+      <input type="number" step="0.01" name="price_usd" value="{{ bike.price_usd }}" required>
+    </div>
+
+    <div style="display:flex;gap:1rem">
+      <button type="submit" class="btn-primary" style="width:auto;flex:1">💾 Save Changes</button>
+      <a href="{% url 'admin_records' %}" style="flex:1;display:block;text-align:center;padding:.85rem;border:1.5px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text)">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

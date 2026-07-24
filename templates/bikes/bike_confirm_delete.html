@@ -1,0 +1,23 @@
+{% extends 'bikes/base.html' %}
+{% block title %}Confirm Delete — BikeAnalysis{% endblock %}
+{% block content %}
+<div class="auth-card" style="max-width:480px;text-align:center">
+  <div style="font-size:3rem">🗑️</div>
+  <h2>Delete This Bike?</h2>
+  <p style="color:var(--text-muted);margin:1rem 0 1.5rem">
+    You are about to permanently delete<br>
+    <strong style="color:var(--text);font-size:1.1rem">{{ bike.bike_name }} ({{ bike.year }})</strong><br>
+    This will also remove it from the CSV file.
+  </p>
+
+  <div style="background:#fee2e2;border-radius:8px;padding:.9rem;margin-bottom:1.5rem;font-size:.88rem;color:#991b1b">
+    ⚠️ This action cannot be undone.
+  </div>
+
+  <form method="post" style="display:flex;gap:1rem">
+    {% csrf_token %}
+    <button type="submit" class="btn-primary btn-danger" style="width:auto;flex:1">Yes, Delete</button>
+    <a href="{% url 'admin_records' %}" style="flex:1;display:block;text-align:center;padding:.85rem;border:1.5px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text)">Cancel</a>
+  </form>
+</div>
+{% endblock %}

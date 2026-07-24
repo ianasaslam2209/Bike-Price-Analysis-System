@@ -1,0 +1,128 @@
+{% extends 'bikes/base.html' %}
+{% load static %}
+{% block title %}Homepage — Bike Price Analysis{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>🏍️ Bike Price <em>Analysis</em> System</h1>
+    <p>Explore {{ db_total }} real-world bike listings — search, filter, compare and uncover market patterns.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="val">{{ db_total }}</div><div class="lbl">Total Bikes</div></div>
+      <div class="hero-stat"><div class="val">{{ brand_count }}</div><div class="lbl">Brands</div></div>
+      <div class="hero-stat"><div class="val">{{ year_count }}</div><div class="lbl">Years</div></div>
+      <div class="hero-stat"><div class="val">2</div><div class="lbl">Fuel Types</div></div>
+    </div>
+    <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="{% url 'search' %}" class="btn btn-primary" style="font-size:1.1rem;padding:.75rem 2rem;">🔍 Search Bikes</a>
+      <a href="{% url 'analytics' %}" class="btn btn-ghost" style="font-size:1.1rem;padding:.75rem 2rem;">📊 View Analytics</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap section">
+
+  <div class="stats-grid">
+    <div class="stat-card red">
+      <div class="stat-icon">🏍️</div>
+      <div><div class="stat-val">{{ db_total }}</div><div class="stat-lbl">Total Listings</div></div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-icon">💰</div>
+      <div><div class="stat-val">${{ stats.avg_price|floatformat:0 }}</div><div class="stat-lbl">Avg Price</div></div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-icon">⬇️</div>
+      <div><div class="stat-val">${{ stats.min_price|floatformat:0 }}</div><div class="stat-lbl">Min Price</div></div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-icon">⬆️</div>
+      <div><div class="stat-val">${{ stats.max_price|floatformat:0 }}</div><div class="stat-lbl">Max Price</div></div>
+    </div>
+  </div>
+
+  <h2 style="margin:2.5rem 0 1rem;font-size:1.4rem;">Explore the System</h2>
+  <div class="bike-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+
+    <div class="bike-card" style="text-align:center;">
+      <div class="bc-head" style="justify-content:center;padding:2rem 1.5rem 1rem;">
+        <div style="font-size:2.5rem;margin-bottom:.5rem;">🔍</div>
+        <div class="bc-name">Search Bikes</div>
+        <div class="bc-brand">Filter by brand, year, price & fuel</div>
+      </div>
+      <div class="bc-foot">
+        <a href="{% url 'search' %}" class="btn btn-navy btn-sm">Go to Search</a>
+      </div>
+    </div>
+
+    <div class="bike-card" style="text-align:center;">
+      <div class="bc-head" style="justify-content:center;padding:2rem 1.5rem 1rem;">
+        <div style="font-size:2.5rem;margin-bottom:.5rem;">📊</div>
+        <div class="bc-name">Analytics</div>
+        <div class="bc-brand">Charts, trends & price insights</div>
+      </div>
+      <div class="bc-foot">
+        <a href="{% url 'analytics' %}" class="btn btn-navy btn-sm">View Analytics</a>
+      </div>
+    </div>
+
+    <div class="bike-card" style="text-align:center;">
+      <div class="bc-head" style="justify-content:center;padding:2rem 1.5rem 1rem;">
+        <div style="font-size:2.5rem;margin-bottom:.5rem;">⚖️</div>
+        <div class="bc-name">Compare</div>
+        <div class="bc-brand">Side-by-side bike comparison</div>
+      </div>
+      <div class="bc-foot">
+        <a href="{% url 'compare' %}" class="btn btn-navy btn-sm">Compare Bikes</a>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 style="margin:2.5rem 0 1rem;font-size:1.4rem;">Featured Listings</h2>
+  <div class="bike-grid">
+    {% for bike in featured_bikes %}
+    <div class="bike-card">
+      <div class="bc-head">
+        <span class="bc-fuel fuel-{% if bike.fuel_type == 'Electric' %}electric{% else %}petrol{% endif %}">{{ bike.fuel_type }}</span>
+        <span class="bc-icon">{% if bike.fuel_type == 'Electric' %}⚡{% else %}🏍️{% endif %}</span>
+        <div class="bc-name">{{ bike.bike_name }}</div>
+        <div class="bc-brand">{{ bike.brand }} &bull; {{ bike.year }}</div>
+      </div>
+      <div class="bc-body">
+        <div class="bc-specs">
+          <div>
+            <div class="spec-lbl">Engine</div>
+            <div class="spec-val">{% if bike.engine_capacity_cc > 0 %}{{ bike.engine_capacity_cc }} cc{% else %}Electric{% endif %}</div>
+          </div>
+          <div>
+            <div class="spec-lbl">KMs Driven</div>
+            <div class="spec-val">{{ bike.kms_driven|floatformat:0 }}</div>
+          </div>
+          <div>
+            <div class="spec-lbl">Year</div>
+            <div class="spec-val">{{ bike.year }}</div>
+          </div>
+          <div>
+            <div class="spec-lbl">Fuel</div>
+            <div class="spec-val">{{ bike.fuel_type }}</div>
+          </div>
+        </div>
+        <div class="bc-price">${{ bike.price_usd }}</div>
+      </div>
+      <div class="bc-foot">
+        <a href="{% url 'bike_detail' bike.pk %}" class="btn btn-navy btn-sm">View Details</a>
+        <a href="{% url 'compare' %}?ids={{ bike.pk }}" class="btn btn-outline btn-sm">Compare</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="{% url 'search' %}" class="btn btn-primary">Browse All {{ db_total }} Bikes →</a>
+  </div>
+
+</div>
+{% endblock %}

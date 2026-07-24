@@ -1,0 +1,22 @@
+[
+  {"model":"bikes.bike","pk":1,"fields":{"bike_name":"Royal Enfield Classic 350","brand":"Royal Enfield","year":2020,"fuel_type":"Petrol","kms_driven":14000,"engine_capacity_cc":346,"price_usd":"3500.00"}},
+  {"model":"bikes.bike","pk":2,"fields":{"bike_name":"Honda CB300R","brand":"Honda","year":2021,"fuel_type":"Petrol","kms_driven":12000,"engine_capacity_cc":286,"price_usd":"4500.00"}},
+  {"model":"bikes.bike","pk":3,"fields":{"bike_name":"Yamaha YZF-R3","brand":"Yamaha","year":2022,"fuel_type":"Petrol","kms_driven":8500,"engine_capacity_cc":321,"price_usd":"5200.00"}},
+  {"model":"bikes.bike","pk":4,"fields":{"bike_name":"Ola S1 Pro Gen 2","brand":"Ola","year":2023,"fuel_type":"Electric","kms_driven":4500,"engine_capacity_cc":0,"price_usd":"1350.00"}},
+  {"model":"bikes.bike","pk":5,"fields":{"bike_name":"Kawasaki Ninja 400","brand":"Kawasaki","year":2022,"fuel_type":"Petrol","kms_driven":5000,"engine_capacity_cc":399,"price_usd":"5500.00"}},
+  {"model":"bikes.bike","pk":6,"fields":{"bike_name":"Royal Enfield Meteor 350","brand":"Royal Enfield","year":2023,"fuel_type":"Petrol","kms_driven":6200,"engine_capacity_cc":349,"price_usd":"3900.00"}},
+  {"model":"bikes.bike","pk":7,"fields":{"bike_name":"Honda CB500F","brand":"Honda","year":2021,"fuel_type":"Petrol","kms_driven":18000,"engine_capacity_cc":471,"price_usd":"5800.00"}},
+  {"model":"bikes.bike","pk":8,"fields":{"bike_name":"Ather 450X","brand":"Ather","year":2023,"fuel_type":"Electric","kms_driven":3200,"engine_capacity_cc":0,"price_usd":"1550.00"}},
+  {"model":"bikes.bike","pk":9,"fields":{"bike_name":"Yamaha MT-03","brand":"Yamaha","year":2022,"fuel_type":"Petrol","kms_driven":9000,"engine_capacity_cc":321,"price_usd":"4800.00"}},
+  {"model":"bikes.bike","pk":10,"fields":{"bike_name":"Kawasaki Z400","brand":"Kawasaki","year":2021,"fuel_type":"Petrol","kms_driven":11000,"engine_capacity_cc":399,"price_usd":"4900.00"}},
+  {"model":"bikes.bike","pk":11,"fields":{"bike_name":"TVS iQube Electric","brand":"TVS","year":2023,"fuel_type":"Electric","kms_driven":2800,"engine_capacity_cc":0,"price_usd":"1200.00"}},
+  {"model":"bikes.bike","pk":12,"fields":{"bike_name":"Bajaj Pulsar NS200","brand":"Bajaj","year":2022,"fuel_type":"Petrol","kms_driven":16000,"engine_capacity_cc":199,"price_usd":"1800.00"}},
+  {"model":"bikes.bike","pk":13,"fields":{"bike_name":"KTM Duke 390","brand":"KTM","year":2023,"fuel_type":"Petrol","kms_driven":4000,"engine_capacity_cc":373,"price_usd":"5100.00"}},
+  {"model":"bikes.bike","pk":14,"fields":{"bike_name":"Honda Activa 6G","brand":"Honda","year":2022,"fuel_type":"Petrol","kms_driven":22000,"engine_capacity_cc":109,"price_usd":"950.00"}},
+  {"model":"bikes.bike","pk":15,"fields":{"bike_name":"Revolt RV400","brand":"Revolt","year":2022,"fuel_type":"Electric","kms_driven":5500,"engine_capacity_cc":0,"price_usd":"1400.00"}},
+  {"model":"bikes.bike","pk":16,"fields":{"bike_name":"Bajaj Dominar 400","brand":"Bajaj","year":2021,"fuel_type":"Petrol","kms_driven":20000,"engine_capacity_cc":373,"price_usd":"2800.00"}},
+  {"model":"bikes.bike","pk":17,"fields":{"bike_name":"Royal Enfield Himalayan","brand":"Royal Enfield","year":2022,"fuel_type":"Petrol","kms_driven":10500,"engine_capacity_cc":411,"price_usd":"4200.00"}},
+  {"model":"bikes.bike","pk":18,"fields":{"bike_name":"Hero Splendor Plus","brand":"Hero","year":2023,"fuel_type":"Petrol","kms_driven":8000,"engine_capacity_cc":97,"price_usd":"750.00"}},
+  {"model":"bikes.bike","pk":19,"fields":{"bike_name":"Suzuki GSX-S750","brand":"Suzuki","year":2021,"fuel_type":"Petrol","kms_driven":13500,"engine_capacity_cc":749,"price_usd":"7200.00"}},
+  {"model":"bikes.bike","pk":20,"fields":{"bike_name":"Simple One Electric","brand":"Simple Energy","year":2023,"fuel_type":"Electric","kms_driven":1800,"engine_capacity_cc":0,"price_usd":"1650.00"}}
+]

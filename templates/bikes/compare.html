@@ -1,0 +1,119 @@
+{% extends 'bikes/base.html' %}
+{% block title %}Compare Bikes — Bike Price Analysis{% endblock %}
+
+{% block content %}
+<div class="page-hd">
+  <div class="wrap">
+    <h2>⚖️ Price Comparison</h2>
+    <p>Select 2 or more bikes to compare specs and prices side-by-side</p>
+  </div>
+</div>
+
+<div class="wrap section">
+
+  <div class="card" style="margin-bottom:1.5rem;">
+    <div class="card-body">
+      <div class="card-title">Select Bikes to Compare</div>
+
+      <div style="margin-bottom:1rem;">
+        <input type="text" id="bikeSearch" placeholder="🔍 Search bikes by name or brand…"
+          style="width:100%;padding:.65rem 1rem;border:1px solid var(--border);border-radius:8px;font-size:.9rem;background:var(--surface);color:var(--text);box-sizing:border-box;">
+      </div>
+
+      <form method="GET">
+        <div class="select-grid" id="bikeList">
+          {% for bike in all_bikes %}
+          <label class="check-label" data-name="{{ bike.bike_name|lower }}" data-brand="{{ bike.brand|lower }}">
+            <input type="checkbox" name="ids" value="{{ bike.pk }}"
+              {% if bike.pk|stringformat:"s" in selected_ids %}checked{% endif %}>
+            <span>{% if bike.fuel_type == 'Electric' %}⚡{% else %}🏍️{% endif %}</span>
+            <span style="flex:1;font-size:.82rem;">
+              <strong>{{ bike.bike_name }}</strong><br>
+              <span style="color:var(--muted);font-size:.75rem;">{{ bike.brand }} &bull; {{ bike.year }}</span>
+            </span>
+            <span class="tag tag-{% if bike.fuel_type == 'Electric' %}electric{% else %}petrol{% endif %}">{{ bike.fuel_type }}</span>
+          </label>
+          {% endfor %}
+        </div>
+        <div style="margin-top:1rem;display:flex;gap:.6rem;">
+          <button type="submit" class="btn btn-primary">⚖️ Compare Selected</button>
+          <a href="{% url 'compare' %}" class="btn btn-ghost">✕ Clear</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% if selected %}
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">📊 Comparison — {{ selected|length }} Bikes</div>
+      <div class="cmp-table-wrap">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              {% for b in selected %}<th>{{ b.bike_name }}</th>{% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Brand</strong></td>
+              {% for b in selected %}<td>{{ b.brand }}</td>{% endfor %}
+            </tr>
+            <tr>
+              <td><strong>Year</strong></td>
+              {% for b in selected %}<td>{{ b.year }}</td>{% endfor %}
+            </tr>
+            <tr>
+              <td><strong>Fuel Type</strong></td>
+              {% for b in selected %}
+              <td><span class="tag tag-{% if b.fuel_type == 'Electric' %}electric{% else %}petrol{% endif %}">{{ b.fuel_type }}</span></td>
+              {% endfor %}
+            </tr>
+            <tr>
+              <td><strong>Engine CC</strong></td>
+              {% for b in selected %}
+              <td>{% if b.engine_capacity_cc > 0 %}{{ b.engine_capacity_cc }} CC{% else %}Electric Motor{% endif %}</td>
+              {% endfor %}
+            </tr>
+            <tr>
+              <td><strong>KMs Driven</strong></td>
+              {% for b in selected %}<td>{{ b.kms_driven }} km</td>{% endfor %}
+            </tr>
+            <tr>
+              <td><strong>Price (USD)</strong></td>
+              {% for b in selected %}<td class="price-cell">${{ b.price_usd }}</td>{% endfor %}
+            </tr>
+            <tr>
+              <td><strong>Details</strong></td>
+              {% for b in selected %}
+              <td><a href="{% url 'bike_detail' b.pk %}" class="btn btn-navy btn-sm">View</a></td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% else %}
+  <div class="empty">
+    <div class="e-icon">⚖️</div>
+    <h3>No bikes selected yet</h3>
+    <p>Tick 2 or more bikes from the list above and click <strong>Compare Selected</strong>.</p>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+document.getElementById('bikeSearch').addEventListener('input', function () {
+  var term = this.value.toLowerCase();
+  document.querySelectorAll('#bikeList .check-label').forEach(function (label) {
+    var name = label.dataset.name || '';
+    var brand = label.dataset.brand || '';
+    label.style.display = (name.includes(term) || brand.includes(term)) ? '' : 'none';
+  });
+});
+</script>
+{% endblock %}

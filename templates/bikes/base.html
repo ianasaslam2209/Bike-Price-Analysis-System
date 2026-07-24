@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Bike Price Analysis{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    .nav-user { display:flex; align-items:center; gap:.75rem; margin-left:auto; }
+    .nav-user a, .nav-user form button {
+      color:#fff; text-decoration:none; font-size:.85rem;
+      background:rgba(255,255,255,.15); border:none; padding:.35rem .8rem;
+      border-radius:6px; cursor:pointer; transition:background .2s;
+    }
+    .nav-user a:hover, .nav-user form button:hover { background:rgba(255,255,255,.3); }
+    .badge-admin {
+      background:#f59e0b; color:#000; font-size:.7rem; font-weight:700;
+      padding:.2rem .5rem; border-radius:4px; text-transform:uppercase;
+    }
+    /* auth card */
+    .auth-card {
+      max-width:440px; margin:5rem auto; background:var(--card);
+      border-radius:16px; padding:2.5rem; box-shadow:0 8px 32px rgba(0,0,0,.15);
+    }
+    .auth-card h2 { margin-bottom:1.5rem; font-size:1.6rem; }
+    .form-group { margin-bottom:1.2rem; }
+    .form-group label { display:block; margin-bottom:.4rem; font-size:.9rem; color:var(--text-muted); }
+    .form-group input, .form-group select {
+      width:100%; padding:.7rem 1rem; border-radius:8px;
+      border:1.5px solid var(--border); background:var(--bg);
+      color:var(--text); font-size:1rem; box-sizing:border-box;
+    }
+    .form-group input:focus { border-color:#6366f1; outline:none; }
+    .btn-primary {
+      width:100%; padding:.85rem; background:#6366f1; color:#fff;
+      border:none; border-radius:10px; font-size:1rem; font-weight:600;
+      cursor:pointer; transition:background .2s;
+    }
+    .btn-primary:hover { background:#4f46e5; }
+    .btn-danger  { background:#ef4444 !important; }
+    .btn-danger:hover { background:#dc2626 !important; }
+    .btn-success { background:#10b981 !important; }
+    .btn-success:hover { background:#059669 !important; }
+    .auth-link { text-align:center; margin-top:1.2rem; font-size:.9rem; color:var(--text-muted); }
+    .auth-link a { color:#6366f1; text-decoration:none; }
+    .alert { padding:.85rem 1.2rem; border-radius:8px; margin-bottom:1rem; font-size:.9rem; }
+    .alert-success { background:#d1fae5; color:#065f46; }
+    .alert-error   { background:#fee2e2; color:#991b1b; }
+    .alert-info    { background:#dbeafe; color:#1e40af; }
+    /* admin table */
+    .admin-table { width:100%; border-collapse:collapse; font-size:.88rem; }
+    .admin-table th { background:var(--card); padding:.7rem 1rem; text-align:left; font-weight:600; border-bottom:2px solid var(--border); }
+    .admin-table td { padding:.65rem 1rem; border-bottom:1px solid var(--border); }
+    .admin-table tr:hover td { background:rgba(99,102,241,.05); }
+    .btn-sm { padding:.3rem .75rem; font-size:.8rem; border-radius:6px; border:none; cursor:pointer; font-weight:600; text-decoration:none; display:inline-block; }
+    .btn-edit { background:#3b82f6; color:#fff; }
+    .btn-del  { background:#ef4444; color:#fff; }
+    .btn-edit:hover { background:#2563eb; }
+    .btn-del:hover  { background:#dc2626; }
+    .page-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
+    .code-hint { font-size:3rem; margin:1rem 0; }
+    .otp-input { text-align:center; letter-spacing:.5rem; font-size:1.8rem; font-weight:700; }
+    /* locked nav items */
+    .nav-locked { opacity:.45; cursor:not-allowed; position:relative; }
+    .nav-locked::after {
+      content:'🔒'; font-size:.7rem; position:absolute; top:-4px; right:-8px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'login' %}{% endif %}">
+    <span class="icon">🏍️</span>
+    <span>BikeAnalysis</span>
+  </a>
+
+  <ul class="nav-links">
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'home' %}"      {% if request.resolver_match.url_name == 'home'      %}class="active"{% endif %}>🏠 <span>Home</span></a></li>
+      <li><a href="{% url 'search' %}"    {% if request.resolver_match.url_name == 'search'    %}class="active"{% endif %}>🔍 <span>Search</span></a></li>
+      <li><a href="{% url 'analytics' %}" {% if request.resolver_match.url_name == 'analytics' %}class="active"{% endif %}>📊 <span>Analytics</span></a></li>
+      <li><a href="{% url 'compare' %}"   {% if request.resolver_match.url_name == 'compare'   %}class="active"{% endif %}>⚖️ <span>Compare</span></a></li>
+      {% if user.is_staff %}
+      <li><a href="{% url 'admin_records' %}" {% if request.resolver_match.url_name == 'admin_records' %}class="active"{% endif %}>🗂️ <span>Records</span></a></li>
+      <li><a href="{% url 'import_csv' %}"    {% if request.resolver_match.url_name == 'import_csv'    %}class="active"{% endif %}>📂 <span>Import CSV</span></a></li>
+      {% endif %}
+    {% else %}
+      {# Show locked placeholders so visitors can see what's available #}
+      <li><span class="nav-locked" title="Login to access">🏠 <span>Home</span></span></li>
+      <li><span class="nav-locked" title="Login to access">🔍 <span>Search</span></span></li>
+      <li><span class="nav-locked" title="Login to access">📊 <span>Analytics</span></span></li>
+      <li><span class="nav-locked" title="Login to access">⚖️ <span>Compare</span></span></li>
+    {% endif %}
+  </ul>
+
+  <div class="nav-user">
+    {% if user.is_authenticated %}
+      {% if user.is_staff %}<span class="badge-admin">Admin</span>{% endif %}
+      <span style="color:#ccc;font-size:.85rem">{{ user.username }}</span>
+      <form method="post" action="{% url 'logout' %}" style="display:inline">{% csrf_token %}
+        <button type="submit">🚪 Logout</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}">🔑 Login</a>
+      <a href="{% url 'signup' %}" style="background:#6366f1">✨ Sign Up</a>
+    {% endif %}
+  </div>
+</nav>
+
+{% if messages %}
+<div style="max-width:960px;margin:1rem auto;padding:0 1.5rem">
+  {% for msg in messages %}
+  <div class="alert {% if msg.tags == 'error' %}alert-error{% elif msg.tags == 'success' %}alert-success{% else %}alert-info{% endif %}">
+    {{ msg }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+  <strong>Bike Price Analysis System</strong> &mdash; 500-row real-world dataset &mdash; Data Science Project &copy; 2024
+</footer>
+</body>
+</html>
